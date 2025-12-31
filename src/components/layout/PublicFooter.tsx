@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Play, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
+import novaLogo from "@/assets/nova-logo.png";
 
 export function PublicFooter() {
   return (
@@ -8,11 +9,8 @@ export function PublicFooter() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                <Play className="w-5 h-5 text-primary-foreground fill-current" />
-              </div>
-              <span className="font-display font-bold text-xl">Nova Player</span>
+            <Link to="/" className="flex items-center">
+              <img src={novaLogo} alt="Nova Player" className="h-10 w-auto" />
             </Link>
             <p className="text-muted-foreground text-sm">
               The ultimate IPTV player with lifetime activation. Stream your favorite content on any device.
