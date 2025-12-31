@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 import { 
   Smartphone, 
   Tv, 
@@ -22,43 +23,6 @@ import rokuLogo from "@/assets/logos/roku-logo.svg";
 import windowsLogo from "@/assets/logos/windows-store-logo.svg";
 import downloaderLogo from "@/assets/logos/downloader-logo.svg";
 
-const devices = [
-  { icon: Smartphone, label: "Android Phone" },
-  { icon: Tablet, label: "Android Tablet" },
-  { icon: Tv, label: "Android TV" },
-  { icon: Monitor, label: "Fire TV Stick" },
-];
-
-const features = [
-  { 
-    icon: Shield, 
-    title: "Lifetime Activation", 
-    description: "Pay once, use forever. No recurring fees or subscriptions." 
-  },
-  { 
-    icon: List, 
-    title: "Unlimited Playlists", 
-    description: "Add as many M3U playlists as you need, local or from server." 
-  },
-  { 
-    icon: Zap, 
-    title: "Instant Setup", 
-    description: "Simple activation with Device ID and PIN. Ready in minutes." 
-  },
-  { 
-    icon: Users, 
-    title: "Multi-Device", 
-    description: "Use on all your compatible devices with one account." 
-  },
-];
-
-const steps = [
-  { number: "01", title: "Install App", description: "Download Nova Player from your app store" },
-  { number: "02", title: "Get Your ID", description: "Open the app to see your Device ID and PIN" },
-  { number: "03", title: "Login", description: "Visit our website and login with your credentials" },
-  { number: "04", title: "Activate", description: "Choose lifetime or trial activation" },
-];
-
 const platformBadges = [
   { name: "Google Play", image: "https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg", url: "#" },
   { name: "App Store", image: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg", url: "#" },
@@ -72,6 +36,45 @@ const tvPlatforms = [
 ];
 
 export default function HomePage() {
+  const { t } = useTranslation();
+
+  const devices = [
+    { icon: Smartphone, label: t("home.devices.androidPhone") },
+    { icon: Tablet, label: t("home.devices.androidTablet") },
+    { icon: Tv, label: t("home.devices.androidTV") },
+    { icon: Monitor, label: t("home.devices.fireTV") },
+  ];
+
+  const features = [
+    { 
+      icon: Shield, 
+      title: t("home.features.lifetimeActivation"), 
+      description: t("home.features.lifetimeActivationDesc")
+    },
+    { 
+      icon: List, 
+      title: t("home.features.unlimitedPlaylists"), 
+      description: t("home.features.unlimitedPlaylistsDesc")
+    },
+    { 
+      icon: Zap, 
+      title: t("home.features.instantSetup"), 
+      description: t("home.features.instantSetupDesc")
+    },
+    { 
+      icon: Users, 
+      title: t("home.features.multiDevice"), 
+      description: t("home.features.multiDeviceDesc")
+    },
+  ];
+
+  const steps = [
+    { number: "01", title: t("home.howItWorks.step1Title"), description: t("home.howItWorks.step1Desc") },
+    { number: "02", title: t("home.howItWorks.step2Title"), description: t("home.howItWorks.step2Desc") },
+    { number: "03", title: t("home.howItWorks.step3Title"), description: t("home.howItWorks.step3Desc") },
+    { number: "04", title: t("home.howItWorks.step4Title"), description: t("home.howItWorks.step4Desc") },
+  ];
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -84,7 +87,7 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-8">
               <Zap className="w-4 h-4" />
-              Lifetime Activation Available
+              {t("home.badge")}
             </div>
             
             {/* Nova Logo */}
@@ -97,23 +100,23 @@ export default function HomePage() {
             </div>
             
             <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              Stream Everything with{" "}
-              <span className="gradient-text">Nova Player</span>
+              {t("home.title")}{" "}
+              <span className="gradient-text">{t("home.titleHighlight")}</span>
             </h1>
             
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              The ultimate IPTV player for Android devices. Simple setup, unlimited playlists, and lifetime activation. Your entertainment, your way.
+              {t("home.description")}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Link to="/activate">
                 <Button variant="glow" size="xl" className="w-full sm:w-auto">
-                  Activate Now <ArrowRight className="w-5 h-5" />
+                  {t("home.activateNow")} <ArrowRight className="w-5 h-5" />
                 </Button>
               </Link>
               <Link to="/playlists">
                 <Button variant="outline" size="xl" className="w-full sm:w-auto">
-                  Learn More
+                  {t("home.learnMore")}
                 </Button>
               </Link>
             </div>
@@ -138,7 +141,7 @@ export default function HomePage() {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5" />
             <div className="relative z-10">
               <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-10">
-                Download <span className="gradient-text">Nova Player</span>
+                {t("home.download.title")} <span className="gradient-text">{t("home.download.titleHighlight")}</span>
               </h2>
               
               {/* Platform Badges */}
@@ -184,12 +187,12 @@ export default function HomePage() {
                 <div className="flex flex-col sm:flex-row items-center gap-4">
                   <img src={downloaderLogo} alt="Downloader App" className="w-16 h-16" />
                   <div className="text-center sm:text-left flex-1">
-                    <h3 className="font-display font-semibold text-lg mb-1">Use Downloader App</h3>
+                    <h3 className="font-display font-semibold text-lg mb-1">{t("home.download.useDownloader")}</h3>
                     <p className="text-muted-foreground text-sm mb-2">
-                      Install via Downloader app with code: <span className="text-primary font-mono font-bold">851628</span>
+                      {t("home.download.downloaderDesc")} <span className="text-primary font-mono font-bold">851628</span>
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      Available on Fire TV, Android TV, and other streaming devices
+                      {t("home.download.downloaderNote")}
                     </p>
                   </div>
                   <a 
@@ -199,7 +202,7 @@ export default function HomePage() {
                   >
                     <Button variant="outline" size="sm" className="gap-2 border-orange-500/30 hover:bg-orange-500/10">
                       <ExternalLink className="w-4 h-4" />
-                      Get Downloader
+                      {t("home.download.getDownloader")}
                     </Button>
                   </a>
                 </div>
@@ -212,16 +215,16 @@ export default function HomePage() {
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4">
                     <Smartphone className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-display font-semibold text-lg mb-2">Android / Fire TV</h3>
+                  <h3 className="font-display font-semibold text-lg mb-2">{t("home.download.androidFireTV")}</h3>
                   <p className="text-muted-foreground text-sm mb-4">
-                    Download code: <span className="text-primary font-mono">851628</span>
+                    {t("home.download.downloadCode")} <span className="text-primary font-mono">851628</span>
                   </p>
                   <a 
                     href="#" 
                     className="inline-flex items-center gap-2 text-primary hover:underline text-sm font-medium"
                   >
                     <Download className="w-4 h-4" />
-                    Download APK
+                    {t("home.download.downloadAPK")}
                   </a>
                 </div>
                 
@@ -230,16 +233,16 @@ export default function HomePage() {
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4">
                     <Tv className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-display font-semibold text-lg mb-2">Samsung TV</h3>
+                  <h3 className="font-display font-semibold text-lg mb-2">{t("home.download.samsungTV")}</h3>
                   <p className="text-muted-foreground text-sm mb-4">
-                    Short App Link
+                    {t("home.download.shortAppLink")}
                   </p>
                   <a 
                     href="#" 
                     className="inline-flex items-center gap-2 text-primary hover:underline text-sm font-medium"
                   >
                     <ExternalLink className="w-4 h-4" />
-                    Open Link
+                    {t("home.download.openLink")}
                   </a>
                 </div>
                 
@@ -248,13 +251,13 @@ export default function HomePage() {
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4">
                     <Monitor className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-display font-semibold text-lg mb-2">Windows Desktop</h3>
+                  <h3 className="font-display font-semibold text-lg mb-2">{t("home.download.windowsDesktop")}</h3>
                   <p className="text-muted-foreground text-sm mb-4">
                     Windows 10/11
                   </p>
                   <Button variant="outline" size="sm" className="gap-2">
                     <Download className="w-4 h-4" />
-                    Download .exe
+                    {t("home.download.downloadExe")}
                   </Button>
                 </div>
               </div>
@@ -268,10 +271,10 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="font-display text-4xl font-bold mb-4">
-              Why Choose <span className="gradient-text">Nova Player</span>?
+              {t("home.features.title")} <span className="gradient-text">{t("home.features.titleHighlight")}</span>?
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Experience the best IPTV player with features designed for simplicity and power.
+              {t("home.features.description")}
             </p>
           </div>
           
@@ -297,10 +300,10 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="font-display text-4xl font-bold mb-4">
-              How to <span className="gradient-text">Get Started</span>
+              {t("home.howItWorks.title")} <span className="gradient-text">{t("home.howItWorks.titleHighlight")}</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Activate your device in just a few simple steps.
+              {t("home.howItWorks.description")}
             </p>
           </div>
           
@@ -315,7 +318,7 @@ export default function HomePage() {
                   <p className="text-muted-foreground text-sm">{step.description}</p>
                 </div>
                 {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-[60%] w-[80%] h-px bg-gradient-to-r from-primary/30 to-transparent" />
+                  <div className="hidden lg:block absolute top-8 left-[60%] w-[80%] h-px bg-gradient-to-r from-primary/30 to-transparent rtl:right-[60%] rtl:left-auto rtl:bg-gradient-to-l" />
                 )}
               </div>
             ))}
@@ -324,7 +327,7 @@ export default function HomePage() {
           <div className="text-center mt-12">
             <Link to="/activate">
               <Button variant="glow" size="lg">
-                Activate Your Device <ArrowRight className="w-5 h-5" />
+                {t("home.howItWorks.activateDevice")} <ArrowRight className="w-5 h-5" />
               </Button>
             </Link>
           </div>
@@ -338,20 +341,20 @@ export default function HomePage() {
             <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5" />
             <div className="relative z-10">
               <h2 className="font-display text-4xl font-bold mb-4">
-                Ready to Start Streaming?
+                {t("home.cta.title")}
               </h2>
               <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-8">
-                Join thousands of satisfied users. Activate your device today and enjoy unlimited entertainment.
+                {t("home.cta.description")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/activate">
                   <Button variant="glow" size="lg">
-                    Get Started Now
+                    {t("home.cta.getStarted")}
                   </Button>
                 </Link>
                 <Link to="/become-reseller">
                   <Button variant="outline" size="lg">
-                    Become a Reseller
+                    {t("home.cta.becomeReseller")}
                   </Button>
                 </Link>
               </div>

@@ -1,0 +1,109 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "managePlaylists": "إدارة القوائم",
+    "activate": "تفعيل",
+    "news": "الأخبار",
+    "faq": "الأسئلة الشائعة",
+    "blog": "المدونة",
+    "resellers": "الموزعين",
+    "becomeReseller": "كن موزعاً",
+    "findReseller": "ابحث عن موزع",
+    "contact": "اتصل بنا",
+    "userPanel": "لوحة المستخدم",
+    "activateNow": "فعّل الآن"
+  },
+  "home": {
+    "badge": "التفعيل مدى الحياة متاح",
+    "title": "شاهد كل شيء مع",
+    "titleHighlight": "Nova Player",
+    "description": "مشغل IPTV الأفضل لأجهزة أندرويد. إعداد بسيط، قوائم تشغيل غير محدودة، وتفعيل مدى الحياة. ترفيهك، بطريقتك.",
+    "activateNow": "فعّل الآن",
+    "learnMore": "اعرف المزيد",
+    "devices": {
+      "androidPhone": "هاتف أندرويد",
+      "androidTablet": "تابلت أندرويد",
+      "androidTV": "أندرويد تي في",
+      "fireTV": "Fire TV Stick"
+    },
+    "download": {
+      "title": "تحميل",
+      "titleHighlight": "Nova Player",
+      "useDownloader": "استخدم تطبيق Downloader",
+      "downloaderDesc": "التثبيت عبر تطبيق Downloader بالكود:",
+      "downloaderNote": "متاح على Fire TV وAndroid TV وأجهزة البث الأخرى",
+      "getDownloader": "احصل على Downloader",
+      "androidFireTV": "أندرويد / Fire TV",
+      "downloadCode": "كود التحميل:",
+      "downloadAPK": "تحميل APK",
+      "samsungTV": "تلفزيون سامسونج",
+      "shortAppLink": "رابط التطبيق المختصر",
+      "openLink": "فتح الرابط",
+      "windowsDesktop": "ويندوز سطح المكتب",
+      "downloadExe": "تحميل .exe"
+    },
+    "features": {
+      "title": "لماذا تختار",
+      "titleHighlight": "Nova Player",
+      "description": "استمتع بأفضل مشغل IPTV مع ميزات مصممة للبساطة والقوة.",
+      "lifetimeActivation": "تفعيل مدى الحياة",
+      "lifetimeActivationDesc": "ادفع مرة واحدة، استخدم للأبد. بدون رسوم متكررة.",
+      "unlimitedPlaylists": "قوائم تشغيل غير محدودة",
+      "unlimitedPlaylistsDesc": "أضف قوائم M3U بقدر ما تحتاج، محلية أو من الخادم.",
+      "instantSetup": "إعداد فوري",
+      "instantSetupDesc": "تفعيل بسيط بمعرف الجهاز والرمز. جاهز في دقائق.",
+      "multiDevice": "متعدد الأجهزة",
+      "multiDeviceDesc": "استخدم على جميع أجهزتك المتوافقة بحساب واحد."
+    },
+    "howItWorks": {
+      "title": "كيف",
+      "titleHighlight": "تبدأ",
+      "description": "فعّل جهازك في خطوات بسيطة.",
+      "step1Title": "تثبيت التطبيق",
+      "step1Desc": "حمّل Nova Player من متجر التطبيقات",
+      "step2Title": "احصل على معرفك",
+      "step2Desc": "افتح التطبيق لرؤية معرف جهازك والرمز",
+      "step3Title": "تسجيل الدخول",
+      "step3Desc": "زر موقعنا وسجل الدخول ببياناتك",
+      "step4Title": "التفعيل",
+      "step4Desc": "اختر التفعيل مدى الحياة أو التجريبي",
+      "activateDevice": "فعّل جهازك"
+    },
+    "cta": {
+      "title": "مستعد للبث؟",
+      "description": "انضم لآلاف المستخدمين الراضين. فعّل جهازك اليوم واستمتع بترفيه غير محدود.",
+      "getStarted": "ابدأ الآن",
+      "becomeReseller": "كن موزعاً"
+    }
+  },
+  "footer": {
+    "description": "مشغل IPTV الأفضل لجميع احتياجات البث الخاصة بك. بسيط وقوي وموثوق.",
+    "quickLinks": "روابط سريعة",
+    "resources": "الموارد",
+    "contactUs": "اتصل بنا",
+    "copyright": "© 2024 Nova Player. جميع الحقوق محفوظة.",
+    "privacyPolicy": "سياسة الخصوصية",
+    "termsOfService": "شروط الخدمة"
+  },
+  "playlists": {
+    "title": "إدارة قوائم التشغيل",
+    "subtitle": "افعلها ببساطة أينما كنت",
+    "loginTitle": "سجل الدخول لإضافة قائمتك",
+    "macAddress": "عنوان Mac",
+    "deviceKey": "مفتاح الجهاز",
+    "login": "دخول",
+    "loggingIn": "جاري الدخول...",
+    "loginSuccess": "تم الدخول بنجاح!",
+    "loginSuccessDesc": "يمكنك الآن إدارة قوائم التشغيل.",
+    "errorTitle": "خطأ",
+    "errorDesc": "يرجى إدخال معرف الجهاز والرمز.",
+    "welcome": "مرحباً!",
+    "deviceId": "معرف الجهاز",
+    "logout": "تسجيل الخروج"
+  },
+  "common": {
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "success": "نجاح"
+  }
+}

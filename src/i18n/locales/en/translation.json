@@ -1,0 +1,109 @@
+{
+  "nav": {
+    "home": "Home",
+    "managePlaylists": "Manage Playlists",
+    "activate": "Activate",
+    "news": "News",
+    "faq": "FAQ",
+    "blog": "Blog",
+    "resellers": "Resellers",
+    "becomeReseller": "Become a Reseller",
+    "findReseller": "Find Nearby Reseller",
+    "contact": "Contact",
+    "userPanel": "User Panel",
+    "activateNow": "Activate Now"
+  },
+  "home": {
+    "badge": "Lifetime Activation Available",
+    "title": "Stream Everything with",
+    "titleHighlight": "Nova Player",
+    "description": "The ultimate IPTV player for Android devices. Simple setup, unlimited playlists, and lifetime activation. Your entertainment, your way.",
+    "activateNow": "Activate Now",
+    "learnMore": "Learn More",
+    "devices": {
+      "androidPhone": "Android Phone",
+      "androidTablet": "Android Tablet",
+      "androidTV": "Android TV",
+      "fireTV": "Fire TV Stick"
+    },
+    "download": {
+      "title": "Download",
+      "titleHighlight": "Nova Player",
+      "useDownloader": "Use Downloader App",
+      "downloaderDesc": "Install via Downloader app with code:",
+      "downloaderNote": "Available on Fire TV, Android TV, and other streaming devices",
+      "getDownloader": "Get Downloader",
+      "androidFireTV": "Android / Fire TV",
+      "downloadCode": "Download code:",
+      "downloadAPK": "Download APK",
+      "samsungTV": "Samsung TV",
+      "shortAppLink": "Short App Link",
+      "openLink": "Open Link",
+      "windowsDesktop": "Windows Desktop",
+      "downloadExe": "Download .exe"
+    },
+    "features": {
+      "title": "Why Choose",
+      "titleHighlight": "Nova Player",
+      "description": "Experience the best IPTV player with features designed for simplicity and power.",
+      "lifetimeActivation": "Lifetime Activation",
+      "lifetimeActivationDesc": "Pay once, use forever. No recurring fees or subscriptions.",
+      "unlimitedPlaylists": "Unlimited Playlists",
+      "unlimitedPlaylistsDesc": "Add as many M3U playlists as you need, local or from server.",
+      "instantSetup": "Instant Setup",
+      "instantSetupDesc": "Simple activation with Device ID and PIN. Ready in minutes.",
+      "multiDevice": "Multi-Device",
+      "multiDeviceDesc": "Use on all your compatible devices with one account."
+    },
+    "howItWorks": {
+      "title": "How to",
+      "titleHighlight": "Get Started",
+      "description": "Activate your device in just a few simple steps.",
+      "step1Title": "Install App",
+      "step1Desc": "Download Nova Player from your app store",
+      "step2Title": "Get Your ID",
+      "step2Desc": "Open the app to see your Device ID and PIN",
+      "step3Title": "Login",
+      "step3Desc": "Visit our website and login with your credentials",
+      "step4Title": "Activate",
+      "step4Desc": "Choose lifetime or trial activation",
+      "activateDevice": "Activate Your Device"
+    },
+    "cta": {
+      "title": "Ready to Start Streaming?",
+      "description": "Join thousands of satisfied users. Activate your device today and enjoy unlimited entertainment.",
+      "getStarted": "Get Started Now",
+      "becomeReseller": "Become a Reseller"
+    }
+  },
+  "footer": {
+    "description": "The ultimate IPTV player for all your streaming needs. Simple, powerful, and reliable.",
+    "quickLinks": "Quick Links",
+    "resources": "Resources",
+    "contactUs": "Contact Us",
+    "copyright": "© 2024 Nova Player. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
+  },
+  "playlists": {
+    "title": "Manage Your Playlists",
+    "subtitle": "Do it simply wherever you go",
+    "loginTitle": "Login to add your playlist",
+    "macAddress": "Mac Address",
+    "deviceKey": "Device Key",
+    "login": "LOGIN",
+    "loggingIn": "Logging in...",
+    "loginSuccess": "Successfully logged in!",
+    "loginSuccessDesc": "You can now manage your playlists.",
+    "errorTitle": "Error",
+    "errorDesc": "Please enter both Device ID and PIN.",
+    "welcome": "Welcome!",
+    "deviceId": "Device ID",
+    "logout": "Logout"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  }
+}
