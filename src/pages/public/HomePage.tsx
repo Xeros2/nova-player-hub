@@ -14,7 +14,8 @@ import {
   ExternalLink
 } from "lucide-react";
 
-// Platform logos
+// Logos
+import novaLogo from "@/assets/nova-logo.png";
 import samsungLogo from "@/assets/logos/samsung-tv-logo.svg";
 import lgLogo from "@/assets/logos/lg-tv-logo.svg";
 import rokuLogo from "@/assets/logos/roku-logo.svg";
@@ -84,6 +85,15 @@ export default function HomePage() {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-8">
               <Zap className="w-4 h-4" />
               Lifetime Activation Available
+            </div>
+            
+            {/* Nova Logo */}
+            <div className="mb-8">
+              <img 
+                src={novaLogo} 
+                alt="Nova Player" 
+                className="h-24 md:h-32 w-auto mx-auto drop-shadow-[0_0_30px_rgba(0,200,255,0.3)]"
+              />
             </div>
             
             <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight">
