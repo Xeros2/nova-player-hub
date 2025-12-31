@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { 
-  Play, 
   Smartphone, 
   Tv, 
   Tablet, 
   Monitor, 
-  Check, 
   ArrowRight,
   Shield,
   Zap,
   List,
-  Users
+  Users,
+  Download,
+  ExternalLink
 } from "lucide-react";
 
 const devices = [
@@ -49,6 +49,11 @@ const steps = [
   { number: "02", title: "Get Your ID", description: "Open the app to see your Device ID and PIN" },
   { number: "03", title: "Login", description: "Visit our website and login with your credentials" },
   { number: "04", title: "Activate", description: "Choose lifetime or trial activation" },
+];
+
+const platformBadges = [
+  { name: "Google Play", image: "https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg", url: "#" },
+  { name: "App Store", image: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg", url: "#" },
 ];
 
 export default function HomePage() {
@@ -97,6 +102,107 @@ export default function HomePage() {
                   <span className="text-sm">{device.label}</span>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Download Section */}
+      <section className="py-16 relative">
+        <div className="container mx-auto px-4">
+          <div className="glass-card p-8 md:p-12 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5" />
+            <div className="relative z-10">
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-center mb-10">
+                Download <span className="gradient-text">Nova Player</span>
+              </h2>
+              
+              {/* Platform Badges */}
+              <div className="flex flex-wrap justify-center gap-4 mb-10">
+                {platformBadges.map((platform) => (
+                  <a 
+                    key={platform.name}
+                    href={platform.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="h-12 hover:opacity-80 transition-opacity"
+                  >
+                    <img 
+                      src={platform.image} 
+                      alt={platform.name} 
+                      className="h-full w-auto"
+                    />
+                  </a>
+                ))}
+                
+                {/* TV Platform Badges */}
+                <div className="flex flex-wrap justify-center gap-3">
+                  {["Samsung Smart TV", "LG TV", "Roku TV", "Windows"].map((platform) => (
+                    <a 
+                      key={platform}
+                      href="#"
+                      className="px-4 py-2 bg-secondary/80 hover:bg-secondary border border-border/50 rounded-lg text-sm font-medium text-foreground transition-colors flex items-center gap-2"
+                    >
+                      <Tv className="w-4 h-4 text-primary" />
+                      {platform}
+                    </a>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Download Links */}
+              <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                {/* Android / Fire TV */}
+                <div className="bg-card/60 border border-border/30 rounded-xl p-6 text-center">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <Smartphone className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-display font-semibold text-lg mb-2">Android / Fire TV</h3>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    Download code: <span className="text-primary font-mono">851628</span>
+                  </p>
+                  <a 
+                    href="#" 
+                    className="inline-flex items-center gap-2 text-primary hover:underline text-sm font-medium"
+                  >
+                    <Download className="w-4 h-4" />
+                    Download APK
+                  </a>
+                </div>
+                
+                {/* Samsung TV */}
+                <div className="bg-card/60 border border-border/30 rounded-xl p-6 text-center">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <Tv className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-display font-semibold text-lg mb-2">Samsung TV</h3>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    Short App Link
+                  </p>
+                  <a 
+                    href="#" 
+                    className="inline-flex items-center gap-2 text-primary hover:underline text-sm font-medium"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Open Link
+                  </a>
+                </div>
+                
+                {/* Windows Desktop */}
+                <div className="bg-card/60 border border-border/30 rounded-xl p-6 text-center">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <Monitor className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-display font-semibold text-lg mb-2">Windows Desktop</h3>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    Windows 10/11
+                  </p>
+                  <Button variant="outline" size="sm" className="gap-2">
+                    <Download className="w-4 h-4" />
+                    Download .exe
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
