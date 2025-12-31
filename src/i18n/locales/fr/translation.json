@@ -1,0 +1,109 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "managePlaylists": "Gérer les Playlists",
+    "activate": "Activer",
+    "news": "Actualités",
+    "faq": "FAQ",
+    "blog": "Blog",
+    "resellers": "Revendeurs",
+    "becomeReseller": "Devenir Revendeur",
+    "findReseller": "Trouver un Revendeur",
+    "contact": "Contact",
+    "userPanel": "Panneau Utilisateur",
+    "activateNow": "Activer Maintenant"
+  },
+  "home": {
+    "badge": "Activation à Vie Disponible",
+    "title": "Streamez Tout avec",
+    "titleHighlight": "Nova Player",
+    "description": "Le lecteur IPTV ultime pour appareils Android. Installation simple, playlists illimitées et activation à vie. Votre divertissement, à votre façon.",
+    "activateNow": "Activer Maintenant",
+    "learnMore": "En Savoir Plus",
+    "devices": {
+      "androidPhone": "Téléphone Android",
+      "androidTablet": "Tablette Android",
+      "androidTV": "Android TV",
+      "fireTV": "Fire TV Stick"
+    },
+    "download": {
+      "title": "Télécharger",
+      "titleHighlight": "Nova Player",
+      "useDownloader": "Utiliser l'App Downloader",
+      "downloaderDesc": "Installer via l'app Downloader avec le code:",
+      "downloaderNote": "Disponible sur Fire TV, Android TV et autres appareils de streaming",
+      "getDownloader": "Obtenir Downloader",
+      "androidFireTV": "Android / Fire TV",
+      "downloadCode": "Code de téléchargement:",
+      "downloadAPK": "Télécharger APK",
+      "samsungTV": "Samsung TV",
+      "shortAppLink": "Lien Court de l'App",
+      "openLink": "Ouvrir le Lien",
+      "windowsDesktop": "Windows Desktop",
+      "downloadExe": "Télécharger .exe"
+    },
+    "features": {
+      "title": "Pourquoi Choisir",
+      "titleHighlight": "Nova Player",
+      "description": "Découvrez le meilleur lecteur IPTV avec des fonctionnalités conçues pour la simplicité et la puissance.",
+      "lifetimeActivation": "Activation à Vie",
+      "lifetimeActivationDesc": "Payez une fois, utilisez pour toujours. Pas de frais récurrents.",
+      "unlimitedPlaylists": "Playlists Illimitées",
+      "unlimitedPlaylistsDesc": "Ajoutez autant de playlists M3U que vous voulez, locales ou serveur.",
+      "instantSetup": "Configuration Instantanée",
+      "instantSetupDesc": "Activation simple avec ID Appareil et PIN. Prêt en minutes.",
+      "multiDevice": "Multi-Appareils",
+      "multiDeviceDesc": "Utilisez sur tous vos appareils compatibles avec un seul compte."
+    },
+    "howItWorks": {
+      "title": "Comment",
+      "titleHighlight": "Commencer",
+      "description": "Activez votre appareil en quelques étapes simples.",
+      "step1Title": "Installer l'App",
+      "step1Desc": "Téléchargez Nova Player depuis votre store d'apps",
+      "step2Title": "Obtenir Votre ID",
+      "step2Desc": "Ouvrez l'app pour voir votre ID Appareil et PIN",
+      "step3Title": "Connexion",
+      "step3Desc": "Visitez notre site et connectez-vous avec vos identifiants",
+      "step4Title": "Activer",
+      "step4Desc": "Choisissez l'activation à vie ou essai",
+      "activateDevice": "Activer Votre Appareil"
+    },
+    "cta": {
+      "title": "Prêt à Commencer le Streaming?",
+      "description": "Rejoignez des milliers d'utilisateurs satisfaits. Activez votre appareil aujourd'hui et profitez d'un divertissement illimité.",
+      "getStarted": "Commencer Maintenant",
+      "becomeReseller": "Devenir Revendeur"
+    }
+  },
+  "footer": {
+    "description": "Le lecteur IPTV ultime pour tous vos besoins de streaming. Simple, puissant et fiable.",
+    "quickLinks": "Liens Rapides",
+    "resources": "Ressources",
+    "contactUs": "Contactez-Nous",
+    "copyright": "© 2024 Nova Player. Tous droits réservés.",
+    "privacyPolicy": "Politique de Confidentialité",
+    "termsOfService": "Conditions d'Utilisation"
+  },
+  "playlists": {
+    "title": "Gérer Vos Playlists",
+    "subtitle": "Faites-le simplement où que vous soyez",
+    "loginTitle": "Connectez-vous pour ajouter votre playlist",
+    "macAddress": "Adresse Mac",
+    "deviceKey": "Clé Appareil",
+    "login": "CONNEXION",
+    "loggingIn": "Connexion en cours...",
+    "loginSuccess": "Connexion réussie!",
+    "loginSuccessDesc": "Vous pouvez maintenant gérer vos playlists.",
+    "errorTitle": "Erreur",
+    "errorDesc": "Veuillez entrer l'ID Appareil et le PIN.",
+    "welcome": "Bienvenue!",
+    "deviceId": "ID Appareil",
+    "logout": "Déconnexion"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès"
+  }
+}

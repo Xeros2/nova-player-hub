@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useTranslation } from "react-i18next";
 import { 
   List, 
   Server, 
@@ -20,8 +21,8 @@ import novaLogo from "@/assets/nova-logo.png";
 const playlistTypes = [
   {
     icon: HardDrive,
-    title: "Local Playlists",
-    description: "Add M3U playlists stored on your device or local network.",
+    titleKey: "Local Playlists",
+    descriptionKey: "Add M3U playlists stored on your device or local network.",
     features: [
       "Import from device storage",
       "Scan local network sources",
@@ -31,8 +32,8 @@ const playlistTypes = [
   },
   {
     icon: Server,
-    title: "Server Playlists",
-    description: "Add playlists via URL from your IPTV provider.",
+    titleKey: "Server Playlists",
+    descriptionKey: "Add playlists via URL from your IPTV provider.",
     features: [
       "Direct URL import",
       "Auto-refresh content",
@@ -47,12 +48,15 @@ export default function PlaylistsPage() {
   const [pin, setPin] = useState("");
   const [loading, setLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { t } = useTranslation();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!deviceId.trim() || !pin.trim()) {
-      toast.error("Please enter both Mac Address and Device Key");
+      toast.error(t("playlists.errorTitle"), {
+        description: t("playlists.errorDesc")
+      });
       return;
     }
 
@@ -64,7 +68,9 @@ export default function PlaylistsPage() {
     localStorage.setItem("playlist_device_id", deviceId);
     localStorage.setItem("playlist_pin", pin);
     
-    toast.success("Login successful! You can now manage your playlists.");
+    toast.success(t("playlists.loginSuccess"), {
+      description: t("playlists.loginSuccessDesc")
+    });
     setIsLoggedIn(true);
     setLoading(false);
   };
@@ -83,10 +89,10 @@ export default function PlaylistsPage() {
               className="h-20 md:h-28 w-auto mx-auto mb-6 drop-shadow-[0_0_30px_rgba(0,200,255,0.3)]"
             />
             <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">
-              Manage Your <span className="gradient-text">Playlists</span>
+              {t("playlists.title").split(" ").slice(0, -1).join(" ")} <span className="gradient-text">{t("playlists.title").split(" ").slice(-1)}</span>
             </h1>
             <p className="text-muted-foreground text-lg">
-              Do it simply wherever you go
+              {t("playlists.subtitle")}
             </p>
           </div>
         </div>
@@ -96,19 +102,19 @@ export default function PlaylistsPage() {
           <div className="w-full max-w-md">
             <div className="glass-card p-8">
               <h2 className="font-display text-2xl font-bold text-center mb-8">
-                Login to add your playlist
+                {t("playlists.loginTitle")}
               </h2>
               
               <form onSubmit={handleLogin} className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="macAddress" className="flex items-center gap-2 text-sm font-medium">
                     <Smartphone className="w-4 h-4 text-primary" />
-                    Mac Address <span className="text-destructive">*</span>
+                    {t("playlists.macAddress")} <span className="text-destructive">*</span>
                   </Label>
                   <Input
                     id="macAddress"
                     type="text"
-                    placeholder="Enter your Device ID"
+                    placeholder={t("playlists.deviceId")}
                     value={deviceId}
                     onChange={(e) => setDeviceId(e.target.value)}
                     className="h-12 bg-background/50"
@@ -118,12 +124,12 @@ export default function PlaylistsPage() {
                 <div className="space-y-2">
                   <Label htmlFor="deviceKey" className="flex items-center gap-2 text-sm font-medium">
                     <Key className="w-4 h-4 text-primary" />
-                    Device Key <span className="text-destructive">*</span>
+                    {t("playlists.deviceKey")} <span className="text-destructive">*</span>
                   </Label>
                   <Input
                     id="deviceKey"
                     type="password"
-                    placeholder="Enter your PIN"
+                    placeholder="PIN"
                     value={pin}
                     onChange={(e) => setPin(e.target.value)}
                     className="h-12 bg-background/50"
@@ -135,7 +141,7 @@ export default function PlaylistsPage() {
                   className="w-full h-12 text-base font-semibold bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 text-white border-0"
                   disabled={loading}
                 >
-                  {loading ? "Logging in..." : "LOGIN"}
+                  {loading ? t("playlists.loggingIn") : t("playlists.login")}
                 </Button>
               </form>
 
@@ -160,7 +166,7 @@ export default function PlaylistsPage() {
             Playlist Management
           </div>
           <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">
-            Manage Your <span className="gradient-text">Playlists</span>
+            {t("playlists.title").split(" ").slice(0, -1).join(" ")} <span className="gradient-text">{t("playlists.title").split(" ").slice(-1)}</span>
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Nova Player supports unlimited playlists from both local sources and remote servers. Organize your content your way.
@@ -171,12 +177,12 @@ export default function PlaylistsPage() {
         <div className="max-w-4xl mx-auto mb-16">
           <div className="grid md:grid-cols-2 gap-8">
             {playlistTypes.map((type) => (
-              <div key={type.title} className="glass-card p-8 hover-glow transition-all duration-300">
+              <div key={type.titleKey} className="glass-card p-8 hover-glow transition-all duration-300">
                 <div className="w-14 h-14 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center mb-6">
                   <type.icon className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="font-display font-bold text-2xl mb-3">{type.title}</h3>
-                <p className="text-muted-foreground mb-6">{type.description}</p>
+                <h3 className="font-display font-bold text-2xl mb-3">{type.titleKey}</h3>
+                <p className="text-muted-foreground mb-6">{type.descriptionKey}</p>
                 <ul className="space-y-3">
                   {type.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-3 text-sm">
@@ -242,7 +248,7 @@ export default function PlaylistsPage() {
           <p className="text-muted-foreground mb-4">Ready to manage your playlists?</p>
           <Link to="/panel">
             <Button variant="glow" size="lg">
-              Go to User Panel <ArrowRight className="w-5 h-5" />
+              {t("nav.userPanel")} <ArrowRight className="w-5 h-5" />
             </Button>
           </Link>
         </div>
