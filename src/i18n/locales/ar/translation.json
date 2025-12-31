@@ -258,6 +258,16 @@
     "title": "فعّل",
     "titleHighlight": "جهازك",
     "description": "اتبع هذه الخطوات البسيطة لتفعيل Nova Player على جهازك والبدء بالمشاهدة.",
+    "loginTitle": "سجل الدخول لتفعيل جهازك",
+    "macAddress": "عنوان Mac",
+    "deviceKey": "مفتاح الجهاز",
+    "login": "دخول",
+    "loggingIn": "جاري الدخول...",
+    "errorTitle": "خطأ",
+    "errorDesc": "يرجى إدخال معرف الجهاز ورمز PIN",
+    "loginSuccess": "متصل!",
+    "loginSuccessDesc": "جاري التحويل إلى لوحة التفعيل...",
+    "helpText": "ابحث عن عنوان Mac ومفتاح الجهاز في إعدادات تطبيق Nova Player على جهازك.",
     "steps": {
       "s1": {
         "title": "تثبيت Nova Player",

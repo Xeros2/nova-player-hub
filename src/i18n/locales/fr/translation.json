@@ -258,6 +258,16 @@
     "title": "Activez Votre",
     "titleHighlight": "Appareil",
     "description": "Suivez ces étapes simples pour activer Nova Player sur votre appareil et commencer à streamer.",
+    "loginTitle": "Connectez-vous pour activer votre appareil",
+    "macAddress": "Adresse Mac",
+    "deviceKey": "Clé de l'Appareil",
+    "login": "CONNEXION",
+    "loggingIn": "Connexion en cours...",
+    "errorTitle": "Erreur",
+    "errorDesc": "Veuillez entrer votre ID Appareil et PIN",
+    "loginSuccess": "Connecté !",
+    "loginSuccessDesc": "Redirection vers le panneau d'activation...",
+    "helpText": "Trouvez votre adresse Mac et clé d'appareil dans les paramètres de l'application Nova Player sur votre appareil.",
     "steps": {
       "s1": {
         "title": "Installer Nova Player",
