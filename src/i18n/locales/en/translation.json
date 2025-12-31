@@ -101,9 +101,280 @@
     "deviceId": "Device ID",
     "logout": "Logout"
   },
+  "faq": {
+    "badge": "Got Questions?",
+    "title": "Frequently Asked",
+    "titleHighlight": "Questions",
+    "description": "Find answers to common questions about Nova Player, activation, and features.",
+    "items": {
+      "q1": {
+        "question": "What is Nova Player?",
+        "answer": "Nova Player is a premium IPTV player application for Android devices (phones, tablets, Android TV, and Fire TV). It allows you to stream content from M3U playlists provided by your IPTV service."
+      },
+      "q2": {
+        "question": "What devices are compatible?",
+        "answer": "Nova Player works on Android phones, Android tablets, Android TV boxes, and Amazon Fire TV devices. Any device running Android 5.0 or higher is supported."
+      },
+      "q3": {
+        "question": "What is the difference between Trial and Lifetime activation?",
+        "answer": "Trial activation gives you temporary access to test all features. Lifetime activation is a one-time purchase that gives you permanent access to the app with no recurring fees."
+      },
+      "q4": {
+        "question": "How do I find my Device ID and PIN?",
+        "answer": "After installing Nova Player, open the app and your unique Device ID and PIN will be displayed on the main screen. Use these credentials to log in to the User Panel on our website."
+      },
+      "q5": {
+        "question": "Can I use Nova Player on multiple devices?",
+        "answer": "Each device requires its own activation. When you install the app on a new device, it will generate a unique Device ID and PIN that needs to be activated separately."
+      },
+      "q6": {
+        "question": "What playlist formats are supported?",
+        "answer": "Nova Player supports M3U and M3U8 playlist formats. You can add playlists via URL or import local files from your device storage."
+      },
+      "q7": {
+        "question": "How do I add a playlist?",
+        "answer": "Log in to the User Panel with your Device ID and PIN, go to the Playlists tab, and enter a name along with the playlist URL. Your playlist will be synced to your device automatically."
+      },
+      "q8": {
+        "question": "Is there EPG (Electronic Program Guide) support?",
+        "answer": "Yes, Nova Player supports EPG when your playlist provider includes EPG data or when you configure an EPG URL in the app settings."
+      },
+      "q9": {
+        "question": "What if my device ID changes?",
+        "answer": "If you reset your device or reinstall the app, a new Device ID may be generated. Contact support with your previous activation details for assistance."
+      },
+      "q10": {
+        "question": "How can I become a reseller?",
+        "answer": "Visit our 'Become a Reseller' page to learn about our reseller program. You'll get access to a special panel to manage customer activations and earn commissions."
+      },
+      "q11": {
+        "question": "Do you provide IPTV subscriptions?",
+        "answer": "No, Nova Player is only the player application. You need to obtain IPTV playlist subscriptions from your preferred IPTV provider separately."
+      },
+      "q12": {
+        "question": "How do I contact support?",
+        "answer": "You can reach our support team through the Contact page on our website. We typically respond within 24-48 hours."
+      }
+    }
+  },
+  "news": {
+    "badge": "Stay Updated",
+    "title": "Latest",
+    "titleHighlight": "News",
+    "description": "Stay informed about the latest updates, features, and announcements from Nova Player.",
+    "categories": {
+      "release": "Release",
+      "update": "Update",
+      "announcement": "Announcement",
+      "infrastructure": "Infrastructure",
+      "feature": "Feature"
+    },
+    "items": {
+      "n1": {
+        "date": "December 28, 2024",
+        "title": "Nova Player 2.5 Released",
+        "excerpt": "New version brings improved performance, better EPG support, and a redesigned channel guide. Update now for the best experience."
+      },
+      "n2": {
+        "date": "December 15, 2024",
+        "title": "Fire TV Stick Support Enhanced",
+        "excerpt": "Optimized navigation and remote control support for Amazon Fire TV devices. Enjoy smoother browsing with your Fire TV remote."
+      },
+      "n3": {
+        "date": "December 1, 2024",
+        "title": "New Reseller Program Launch",
+        "excerpt": "Introducing our updated reseller program with better commissions and a dedicated reseller panel. Apply today!"
+      },
+      "n4": {
+        "date": "November 20, 2024",
+        "title": "Server Infrastructure Upgrade",
+        "excerpt": "We've upgraded our servers for faster playlist loading and improved reliability. Experience zero downtime streaming."
+      },
+      "n5": {
+        "date": "November 10, 2024",
+        "title": "Multi-Audio Track Support",
+        "excerpt": "Nova Player now supports multiple audio tracks. Switch between languages on the fly for channels that offer multiple audio options."
+      }
+    }
+  },
+  "blog": {
+    "badge": "Learn & Explore",
+    "title": "Nova Player",
+    "titleHighlight": "Blog",
+    "description": "Tutorials, tips, and guides to help you get the most out of Nova Player.",
+    "readMore": "Read More",
+    "minRead": "min read",
+    "categories": {
+      "tutorial": "Tutorial",
+      "tips": "Tips",
+      "guide": "Guide"
+    },
+    "items": {
+      "b1": {
+        "title": "Getting Started with Nova Player: A Complete Guide",
+        "excerpt": "Learn how to set up Nova Player on your device, add your first playlist, and start streaming in minutes."
+      },
+      "b2": {
+        "title": "Best Practices for Playlist Management",
+        "excerpt": "Organize your playlists effectively with these tips and tricks for managing multiple M3U sources."
+      },
+      "b3": {
+        "title": "Optimizing Your Streaming Quality",
+        "excerpt": "Get the best picture quality with our guide to video settings, buffer optimization, and network configuration."
+      },
+      "b4": {
+        "title": "How to Set Up EPG (Electronic Program Guide)",
+        "excerpt": "Configure your electronic program guide to see what's playing now and schedule your viewing."
+      }
+    }
+  },
+  "contact": {
+    "badge": "Get In Touch",
+    "title": "Contact",
+    "titleHighlight": "Us",
+    "description": "Have questions or need assistance? We're here to help. Send us a message and we'll respond as soon as possible.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "How can we help?",
+      "message": "Message",
+      "messagePlaceholder": "Tell us more about your inquiry...",
+      "submit": "Send Message"
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location"
+    },
+    "toast": {
+      "success": "Message sent! We'll get back to you soon."
+    }
+  },
+  "activate": {
+    "badge": "Simple Activation Process",
+    "title": "Activate Your",
+    "titleHighlight": "Device",
+    "description": "Follow these simple steps to activate Nova Player on your device and start streaming.",
+    "steps": {
+      "s1": {
+        "title": "Install Nova Player",
+        "description": "Download the Nova Player app from your device's app store (Android TV, Fire TV, Android Phone/Tablet)."
+      },
+      "s2": {
+        "title": "Get Your Credentials",
+        "description": "Open the app and note your unique Device ID and PIN displayed on the screen."
+      },
+      "s3": {
+        "title": "Visit Our Website",
+        "description": "Go to the User Panel on our website and enter your Device ID and PIN to log in."
+      },
+      "s4": {
+        "title": "Choose Your Activation",
+        "description": "Select Lifetime activation for permanent access, or try our Trial to test the features first."
+      }
+    },
+    "types": {
+      "chooseTitle": "Choose Your",
+      "chooseTitleHighlight": "Activation Type",
+      "recommended": "RECOMMENDED",
+      "trial": {
+        "title": "Trial Activation",
+        "description": "Test all features for a limited time before committing.",
+        "features": {
+          "f1": "Full feature access",
+          "f2": "Limited time period",
+          "f3": "No payment required",
+          "f4": "Perfect for testing"
+        },
+        "cta": "Start Trial"
+      },
+      "lifetime": {
+        "title": "Lifetime Activation",
+        "description": "One-time payment for permanent access to all features.",
+        "features": {
+          "f1": "Unlimited access forever",
+          "f2": "All premium features",
+          "f3": "Priority support",
+          "f4": "No recurring fees"
+        },
+        "cta": "Activate Lifetime"
+      }
+    },
+    "cta": {
+      "alreadyHave": "Already have your Device ID and PIN?",
+      "goToPanel": "Go to User Panel"
+    }
+  },
+  "reseller": {
+    "badge": "Partner With Us",
+    "title": "Become a",
+    "titleHighlight": "Reseller",
+    "description": "Join our reseller network and earn by selling Nova Player activations. Get access to exclusive tools and support.",
+    "benefits": {
+      "b1": {
+        "title": "Competitive Commissions",
+        "description": "Earn generous commissions on every activation you sell."
+      },
+      "b2": {
+        "title": "Dedicated Panel",
+        "description": "Access your own reseller panel to manage customers and activations."
+      },
+      "b3": {
+        "title": "Real-time Stats",
+        "description": "Track your sales, commissions, and customer activity in real-time."
+      },
+      "b4": {
+        "title": "Priority Support",
+        "description": "Get dedicated support for you and your customers."
+      }
+    },
+    "features": {
+      "title": "Reseller Panel",
+      "titleHighlight": "Features",
+      "f1": "Instant device activation",
+      "f2": "Credit-based system",
+      "f3": "Bulk activation options",
+      "f4": "Customer playlist management",
+      "f5": "Detailed activity history",
+      "f6": "24/7 panel access"
+    },
+    "form": {
+      "title": "Apply",
+      "titleHighlight": "Now",
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "phone": "Phone",
+      "phonePlaceholder": "+33 ...",
+      "company": "Company (Optional)",
+      "companyPlaceholder": "Your company",
+      "message": "Tell us about yourself",
+      "messagePlaceholder": "Your experience, expected volume, etc.",
+      "submit": "Submit Application"
+    },
+    "toast": {
+      "success": "Application submitted! We'll review and contact you soon."
+    }
+  },
+  "findReseller": {
+    "badge": "Local Support",
+    "title": "Find a",
+    "titleHighlight": "Reseller Near You",
+    "description": "Get local support and activation assistance from our authorized resellers.",
+    "searchPlaceholder": "Search by city, region, or name...",
+    "authorizedTitle": "Authorized",
+    "authorizedTitleHighlight": "Resellers",
+    "mapComingSoon": "Interactive map coming soon",
+    "noResults": "No resellers found matching your search."
+  },
   "common": {
     "loading": "Loading...",
     "error": "Error",
-    "success": "Success"
+    "success": "Success",
+    "step": "STEP"
   }
 }

@@ -1,13 +1,12 @@
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { 
   MapPin, 
   Search,
   Phone,
-  Mail,
-  ExternalLink
+  Mail
 } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const resellers = [
   {
@@ -55,6 +54,7 @@ const resellers = [
 ];
 
 export default function FindResellerPage() {
+  const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState("");
   
   const filteredResellers = resellers.filter(
@@ -71,13 +71,13 @@ export default function FindResellerPage() {
         <div className="text-center mb-16 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
             <MapPin className="w-4 h-4" />
-            Local Support
+            {t("findReseller.badge")}
           </div>
           <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">
-            Find a <span className="gradient-text">Reseller Near You</span>
+            {t("findReseller.title")} <span className="gradient-text">{t("findReseller.titleHighlight")}</span>
           </h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Get local support and activation assistance from our authorized resellers.
+            {t("findReseller.description")}
           </p>
         </div>
 
@@ -87,7 +87,7 @@ export default function FindResellerPage() {
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
             <Input
               type="text"
-              placeholder="Search by city, region, or name..."
+              placeholder={t("findReseller.searchPlaceholder")}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-12 h-14 text-lg bg-secondary/50 border-border"
@@ -100,7 +100,7 @@ export default function FindResellerPage() {
           <div className="glass-card aspect-[16/9] md:aspect-[21/9] flex items-center justify-center">
             <div className="text-center">
               <MapPin className="w-16 h-16 text-primary/30 mx-auto mb-4" />
-              <p className="text-muted-foreground">Interactive map coming soon</p>
+              <p className="text-muted-foreground">{t("findReseller.mapComingSoon")}</p>
             </div>
           </div>
         </div>
@@ -108,7 +108,7 @@ export default function FindResellerPage() {
         {/* Reseller List */}
         <div className="max-w-4xl mx-auto">
           <h2 className="font-display text-2xl font-bold mb-6">
-            Authorized <span className="gradient-text">Resellers</span>
+            {t("findReseller.authorizedTitle")} <span className="gradient-text">{t("findReseller.authorizedTitleHighlight")}</span>
           </h2>
           
           <div className="grid md:grid-cols-2 gap-6">
@@ -134,7 +134,7 @@ export default function FindResellerPage() {
           
           {filteredResellers.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-muted-foreground">No resellers found matching your search.</p>
+              <p className="text-muted-foreground">{t("findReseller.noResults")}</p>
             </div>
           )}
         </div>
