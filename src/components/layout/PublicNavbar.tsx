@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Play, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import novaLogo from "@/assets/nova-logo.png";
 import { useState } from "react";
 import {
   DropdownMenu,
@@ -34,11 +35,8 @@ export function PublicNavbar() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-              <Play className="w-5 h-5 text-primary-foreground fill-current" />
-            </div>
-            <span className="font-display font-bold text-xl">Nova Player</span>
+          <Link to="/" className="flex items-center">
+            <img src={novaLogo} alt="Nova Player" className="h-10 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
