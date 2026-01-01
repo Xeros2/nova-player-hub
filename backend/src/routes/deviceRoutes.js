@@ -8,9 +8,9 @@ const router = express.Router();
 
 const deviceController = require('../controllers/deviceController');
 const playlistController = require('../controllers/playlistController');
-const { authenticateDevice } = require('../middlewares/authMiddleware');
+const { authenticateDevice, requireActiveDevice } = require('../middlewares/authMiddleware');
 const { validateBody, validateQuery, validateParams } = require('../middlewares/validator');
-const { statusLimiter, registrationLimiter, trialLimiter } = require('../middlewares/rateLimiter');
+const { statusLimiter, registrationLimiter } = require('../middlewares/rateLimiter');
 
 /**
  * @route   POST /device/register
@@ -47,17 +47,23 @@ router.get(
   deviceController.getStatus
 );
 
+// NOTE: Trial can ONLY be started by Admin or Reseller (see adminRoutes and resellerRoutes)
+// Public trial endpoint has been removed for security
+
 /**
- * @route   POST /device/start-trial
- * @desc    Start trial period for device
- * @access  Public (rate limited)
+ * @route   GET /device/player-info
+ * @desc    Get complete player info (status, playlists, trial info)
+ * @access  Private (device token required)
  */
-router.post(
-  '/start-trial',
-  trialLimiter,
-  validateBody('deviceStatus'),
-  deviceController.startTrial
+router.get(
+  '/player-info',
+  authenticateDevice,
+  deviceController.getPlayerInfo
 );
+
+// ==========================================
+// ACTIVATION (kept for backwards compatibility)
+// ==========================================
 
 /**
  * @route   POST /device/activate

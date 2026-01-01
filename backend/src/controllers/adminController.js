@@ -291,6 +291,36 @@ const getStats = asyncHandler(async (req, res) => {
   });
 });
 
+/**
+ * POST /admin/batch/start-trial-all
+ * Start trial for ALL OPEN devices
+ */
+const batchStartTrialAllOpen = asyncHandler(async (req, res) => {
+  const results = await deviceService.startTrialForAllOpen();
+  
+  res.status(HTTP_STATUS.OK).json({
+    success: true,
+    message: `Trial started for ${results.success.length} devices`,
+    data: results
+  });
+});
+
+/**
+ * POST /admin/batch/activate-lifetime
+ * Activate multiple devices with lifetime
+ */
+const batchActivateLifetime = asyncHandler(async (req, res) => {
+  const { device_codes } = req.body;
+  
+  const results = await deviceService.batchActivateLifetime(device_codes);
+  
+  res.status(HTTP_STATUS.OK).json({
+    success: true,
+    message: `Lifetime activated for ${results.success.length} devices`,
+    data: results
+  });
+});
+
 module.exports = {
   login,
   getDevices,
@@ -300,6 +330,8 @@ module.exports = {
   batchStartTrial,
   batchExpire,
   batchActivate,
+  batchStartTrialAllOpen,
+  batchActivateLifetime,
   getResellers,
   createReseller,
   addResellerCredits,

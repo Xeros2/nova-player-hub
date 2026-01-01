@@ -135,34 +135,52 @@ GET /device/status?device_code=ABC123XYZ
 }
 ```
 
-### Start Trial
+### ~~Start Trial~~ (REMOVED)
 
-Start a 7-day trial period.
+> **SECURITY**: The public trial endpoint has been removed. Trial can ONLY be started by:
+> - Admin via `POST /admin/device/start-trial`
+> - Reseller via `POST /reseller/device/start-trial`
+
+This prevents abuse and ensures controlled trial distribution.
+
+### Get Player Info
+
+Get complete player information for IPTV apps.
 
 ```http
-POST /device/start-trial
-```
-
-**Request Body:**
-```json
-{
-  "device_code": "ABC123XYZ"
-}
+GET /device/player-info
+Authorization: Bearer <device_token>
 ```
 
 **Response (200 OK):**
 ```json
 {
   "success": true,
-  "message": "Trial period started successfully",
   "data": {
     "device_code": "ABC123XYZ",
-    "status": "TRIAL",
-    "trial": {
-      "started_at": "2024-01-01T00:00:00.000Z",
-      "expires_at": "2024-01-08T00:00:00.000Z",
-      "days_remaining": 7
-    }
+    "status": "ACTIVE",
+    "lifetime": false,
+    "trial": null,
+    "activation": {
+      "expires_at": "2024-12-31T23:59:59.000Z",
+      "is_expired": false,
+      "days_remaining": 365
+    },
+    "permissions": {
+      "can_view_playlists": true,
+      "can_add_playlists": true,
+      "can_stream": true,
+      "can_use_features": true
+    },
+    "playlists": [
+      {
+        "id": "uuid",
+        "name": "My Playlist",
+        "url": "http://example.com/playlist.m3u",
+        "created_at": "2024-01-01T00:00:00.000Z"
+      }
+    ],
+    "server_time": "2024-01-15T12:00:00.000Z"
   }
 }
 ```
@@ -418,7 +436,7 @@ Authorization: Bearer <admin_token>
 
 ### Batch Operations
 
-**Start Trial (Batch):**
+**Start Trial (Batch - selected devices):**
 ```http
 POST /admin/batch/start-trial
 Authorization: Bearer <admin_token>
@@ -428,6 +446,27 @@ Authorization: Bearer <admin_token>
 ```json
 {
   "device_codes": ["ABC123", "DEF456", "GHI789"]
+}
+```
+
+**Start Trial (ALL OPEN devices):**
+```http
+POST /admin/batch/start-trial-all
+Authorization: Bearer <admin_token>
+```
+
+No request body required. Starts trial for all devices with status OPEN.
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Trial started for 50 devices",
+  "data": {
+    "total": 55,
+    "success": ["ABC123", "DEF456", ...],
+    "failed": [{"device_code": "XYZ789", "error": "Trial already used"}]
+  }
 }
 ```
 
@@ -448,6 +487,19 @@ Authorization: Bearer <admin_token>
 {
   "device_codes": ["ABC123", "DEF456"],
   "days": 30
+}
+```
+
+**Activate Lifetime (Batch):**
+```http
+POST /admin/batch/activate-lifetime
+Authorization: Bearer <admin_token>
+```
+
+**Request Body:**
+```json
+{
+  "device_codes": ["ABC123", "DEF456"]
 }
 ```
 
@@ -540,8 +592,9 @@ Authorization: Bearer <admin_token>
 | `/reseller/login` | 5 attempts | 15 minutes |
 | `/admin/login` | 5 attempts | 15 minutes |
 | `/device/register` | 10 registrations | 1 hour |
-| `/device/start-trial` | 3 trials | 1 hour |
 | Admin endpoints | 1000 requests | 15 minutes |
+
+> **Note**: Public trial endpoint removed for security. Trial limited to Admin/Reseller control.
 
 ---
 

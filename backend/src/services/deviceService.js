@@ -287,6 +287,79 @@ const getDeviceById = async (deviceId) => {
   return statusService.getStatusResponse(device);
 };
 
+/**
+ * Start trial for all OPEN devices
+ * @returns {Promise<object>} - Results with success and failed arrays
+ */
+const startTrialForAllOpen = async () => {
+  const { Op } = require('sequelize');
+  
+  const openDevices = await Device.findAll({
+    where: {
+      trial_started_at: null,
+      lifetime: false,
+      activated_until: null
+    }
+  });
+  
+  const results = {
+    success: [],
+    failed: [],
+    total: openDevices.length
+  };
+  
+  for (const device of openDevices) {
+    try {
+      await startTrial(device.device_code);
+      results.success.push(device.device_code);
+    } catch (error) {
+      results.failed.push({
+        device_code: device.device_code,
+        error: error.message
+      });
+    }
+  }
+  
+  logger.info('Batch trial started for all OPEN devices', {
+    total: results.total,
+    success: results.success.length,
+    failed: results.failed.length
+  });
+  
+  return results;
+};
+
+/**
+ * Batch activate devices with lifetime
+ * @param {string[]} deviceCodes - Array of device codes
+ * @returns {Promise<object>} - Results with success and failed arrays
+ */
+const batchActivateLifetime = async (deviceCodes) => {
+  const results = {
+    success: [],
+    failed: []
+  };
+  
+  for (const deviceCode of deviceCodes) {
+    try {
+      await activateLifetime(deviceCode);
+      results.success.push(deviceCode);
+    } catch (error) {
+      results.failed.push({
+        device_code: deviceCode,
+        error: error.message
+      });
+    }
+  }
+  
+  logger.info('Batch lifetime activation completed', {
+    success: results.success.length,
+    failed: results.failed.length
+  });
+  
+  return results;
+};
+
 module.exports = {
   registerDevice,
   authenticateDevice,
@@ -296,5 +369,7 @@ module.exports = {
   activateLifetime,
   expireDevice,
   getAllDevices,
-  getDeviceById
+  getDeviceById,
+  startTrialForAllOpen,
+  batchActivateLifetime
 };
