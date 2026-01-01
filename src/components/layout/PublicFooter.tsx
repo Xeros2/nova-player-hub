@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import novaLogo from "@/assets/nova-logo.png";
 
 export function PublicFooter() {
   const { t } = useTranslation();
@@ -13,7 +12,9 @@ export function PublicFooter() {
           {/* Brand */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center">
-              <img src={novaLogo} alt="Nova Player" className="h-10 w-auto" />
+              <span className="text-2xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">
+                Nova+
+              </span>
             </Link>
             <p className="text-muted-foreground text-sm">
               {t("footer.description")}
