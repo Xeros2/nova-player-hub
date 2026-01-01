@@ -259,7 +259,8 @@
     "titleHighlight": "جهازك",
     "description": "اتبع هذه الخطوات البسيطة لتفعيل Nova+ على جهازك والبدء بالمشاهدة.",
     "loginTitle": "سجل الدخول لتفعيل جهازك",
-    "macAddress": "عنوان Mac",
+    "deviceIdLabel": "معرف الجهاز",
+    "deviceIdPlaceholder": "معرف جهازك",
     "deviceKey": "مفتاح الجهاز",
     "login": "دخول",
     "loggingIn": "جاري الدخول...",
@@ -267,7 +268,7 @@
     "errorDesc": "يرجى إدخال معرف الجهاز ورمز PIN",
     "loginSuccess": "متصل!",
     "loginSuccessDesc": "جاري التحويل إلى لوحة التفعيل...",
-    "helpText": "ابحث عن عنوان Mac ومفتاح الجهاز في إعدادات تطبيق Nova+ على جهازك.",
+    "helpText": "ابحث عن معرف الجهاز ومفتاح الجهاز في إعدادات تطبيق Nova+ على جهازك.",
     "steps": {
       "s1": {
         "title": "تثبيت Nova+",

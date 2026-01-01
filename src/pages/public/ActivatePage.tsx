@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { toast } from "@/hooks/use-toast";
-import { Zap } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { Smartphone, Key, Zap } from "lucide-react";
+import { toast } from "sonner";
 import novaLogo from "@/assets/nova-logo.png";
 
 export default function ActivatePage() {
@@ -18,11 +18,9 @@ export default function ActivatePage() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!deviceId || !pin) {
-      toast({
-        title: t("activate.errorTitle"),
-        description: t("activate.errorDesc"),
-        variant: "destructive",
+    if (!deviceId.trim() || !pin.trim()) {
+      toast.error(t("activate.errorTitle"), {
+        description: t("activate.errorDesc")
       });
       return;
     }
@@ -30,15 +28,14 @@ export default function ActivatePage() {
     setLoading(true);
     
     // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1500));
     
     // Store credentials
     localStorage.setItem("deviceId", deviceId);
     localStorage.setItem("pin", pin);
     
-    toast({
-      title: t("activate.loginSuccess"),
-      description: t("activate.loginSuccessDesc"),
+    toast.success(t("activate.loginSuccess"), {
+      description: t("activate.loginSuccessDesc")
     });
     
     setLoading(false);
@@ -46,73 +43,81 @@ export default function ActivatePage() {
   };
 
   return (
-    <div className="min-h-screen py-20 flex items-center justify-center">
-      <div className="container mx-auto px-4">
-        <div className="max-w-md mx-auto">
-          {/* Hero */}
-          <div className="text-center mb-10 animate-fade-in">
-            <div className="flex justify-center mb-6">
-              <img 
-                src={novaLogo} 
-                alt="Nova Player" 
-                className="h-20 w-auto"
-              />
-            </div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
-              <Zap className="w-4 h-4" />
-              {t("activate.badge")}
-            </div>
-            <h1 className="font-display text-3xl md:text-4xl font-bold mb-4">
-              {t("activate.title")} <span className="gradient-text">{t("activate.titleHighlight")}</span>
-            </h1>
-            <p className="text-muted-foreground">
-              {t("activate.loginTitle")}
-            </p>
+    <div className="min-h-screen flex flex-col">
+      {/* Hero Section */}
+      <div className="relative py-16 md:py-24 bg-gradient-to-b from-background to-muted/30">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <img 
+            src={novaLogo} 
+            alt="Nova+" 
+            className="h-20 md:h-28 w-auto mx-auto mb-6 drop-shadow-[0_0_30px_rgba(0,200,255,0.3)]"
+          />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
+            <Zap className="w-4 h-4" />
+            {t("activate.badge")}
           </div>
+          <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">
+            {t("activate.title")} <span className="gradient-text">{t("activate.titleHighlight")}</span>
+          </h1>
+          <p className="text-muted-foreground text-lg">
+            {t("activate.description")}
+          </p>
+        </div>
+      </div>
 
-          {/* Login Form */}
-          <form onSubmit={handleLogin} className="glass-card p-8 animate-slide-up">
-            <div className="space-y-6">
+      {/* Login Form */}
+      <div className="flex-1 flex items-start justify-center py-12 px-4">
+        <div className="w-full max-w-md">
+          <div className="glass-card p-8">
+            <h2 className="font-display text-2xl font-bold text-center mb-8">
+              {t("activate.loginTitle")}
+            </h2>
+            
+            <form onSubmit={handleLogin} className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="deviceId">{t("activate.macAddress")}</Label>
+                <Label htmlFor="deviceId" className="flex items-center gap-2 text-sm font-medium">
+                  <Smartphone className="w-4 h-4 text-primary" />
+                  {t("activate.deviceIdLabel")} <span className="text-destructive">*</span>
+                </Label>
                 <Input
                   id="deviceId"
                   type="text"
-                  placeholder="XX:XX:XX:XX:XX:XX"
+                  placeholder={t("activate.deviceIdPlaceholder")}
                   value={deviceId}
                   onChange={(e) => setDeviceId(e.target.value)}
-                  className="bg-background/50"
+                  className="h-12 bg-background/50"
                 />
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="pin">{t("activate.deviceKey")}</Label>
+                <Label htmlFor="deviceKey" className="flex items-center gap-2 text-sm font-medium">
+                  <Key className="w-4 h-4 text-primary" />
+                  {t("activate.deviceKey")} <span className="text-destructive">*</span>
+                </Label>
                 <Input
-                  id="pin"
+                  id="deviceKey"
                   type="password"
-                  placeholder="••••••••"
+                  placeholder="PIN"
                   value={pin}
                   onChange={(e) => setPin(e.target.value)}
-                  className="bg-background/50"
+                  className="h-12 bg-background/50"
                 />
               </div>
 
               <Button 
                 type="submit" 
-                variant="glow" 
-                size="lg" 
-                className="w-full"
+                className="w-full h-12 text-base font-semibold bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 text-white border-0"
                 disabled={loading}
               >
                 {loading ? t("activate.loggingIn") : t("activate.login")}
               </Button>
-            </div>
-          </form>
+            </form>
 
-          {/* Help Text */}
-          <p className="text-center text-sm text-muted-foreground mt-6">
-            {t("activate.helpText")}
-          </p>
+            <p className="text-xs text-muted-foreground text-center mt-6">
+              {t("activate.helpText")}
+            </p>
+          </div>
         </div>
       </div>
     </div>

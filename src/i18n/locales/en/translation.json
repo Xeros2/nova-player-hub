@@ -259,7 +259,8 @@
     "titleHighlight": "Device",
     "description": "Follow these simple steps to activate Nova+ on your device and start streaming.",
     "loginTitle": "Login to activate your device",
-    "macAddress": "Mac Address",
+    "deviceIdLabel": "Device ID",
+    "deviceIdPlaceholder": "Your Device ID",
     "deviceKey": "Device Key",
     "login": "LOGIN",
     "loggingIn": "Logging in...",
@@ -267,7 +268,7 @@
     "errorDesc": "Please enter your Device ID and PIN",
     "loginSuccess": "Connected!",
     "loginSuccessDesc": "Redirecting to activation panel...",
-    "helpText": "Find your Mac Address and Device Key in the Nova+ app settings on your device.",
+    "helpText": "Find your Device ID and Device Key in the Nova+ app settings on your device.",
     "steps": {
       "s1": {
         "title": "Install Nova+",
