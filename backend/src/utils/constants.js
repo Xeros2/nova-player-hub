@@ -14,7 +14,7 @@ const DEVICE_STATUS = {
 
 // Trial configuration
 const TRIAL_CONFIG = {
-  DURATION_DAYS: parseInt(process.env.TRIAL_DURATION_DAYS) || 7,
+  DURATION_DAYS: parseInt(process.env.TRIAL_DURATION_DAYS) || 30,
   MAX_TRIALS_PER_DEVICE: 1
 };
 

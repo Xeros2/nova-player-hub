@@ -50,7 +50,7 @@ Nova Player is a licensing and activation system for IPTV players. It manages de
 | Status | Description | Permissions |
 |--------|-------------|-------------|
 | **OPEN** | Device registered but not activated | View only |
-| **TRIAL** | In free trial period (7 days default) | Full access, limited features |
+| **TRIAL** | In free trial period (30 days default) | Full access, limited features |
 | **ACTIVE** | Paid subscription active | Full access |
 | **EXPIRED** | Trial or subscription expired | View only, no streaming |
 | **LIFETIME** | Permanent activation | Full access |
@@ -159,6 +159,9 @@ function calculateStatus(device) {
 
 ## Trial Period Flow
 
+> **SECURITY**: Trial can ONLY be started by Admin or Reseller.
+> Public trial endpoint has been removed to prevent abuse.
+
 ```
 ┌────────────────────────────────────────────────────────────────┐
 │                        TRIAL FLOW                               │
@@ -171,11 +174,12 @@ function calculateStatus(device) {
 │     └──▶ POST /device/register                                  │
 │     └──▶ Status: OPEN                                           │
 │                                                                 │
-│  3. User starts trial (once per device)                         │
-│     └──▶ POST /device/start-trial                               │
+│  3. Admin or Reseller starts trial (NOT user)                   │
+│     └──▶ POST /admin/device/start-trial                         │
+│     └──▶ OR POST /reseller/device/start-trial                   │
 │     └──▶ Status: TRIAL                                          │
 │     └──▶ trial_started_at = now()                               │
-│     └──▶ trial_expires_at = now() + 7 days                      │
+│     └──▶ trial_expires_at = now() + 30 days                     │
 │                                                                 │
 │  4. Trial period active                                         │
 │     └──▶ User can stream and manage playlists                   │
@@ -185,6 +189,11 @@ function calculateStatus(device) {
 │     └──▶ Status calculated: EXPIRED                             │
 │     └──▶ User cannot stream                                     │
 │     └──▶ Must purchase activation                               │
+│                                                                 │
+│  BLOCKED ACTIONS:                                               │
+│     ✗ User cannot start trial themselves                        │
+│     ✗ Trial cannot be restarted once used                       │
+│     ✗ Trial cannot be extended from client                      │
 │                                                                 │
 └────────────────────────────────────────────────────────────────┘
 ```
@@ -293,6 +302,9 @@ const deviceRegister = Joi.object({
 2. **Status check on app launch**: Must validate with server
 3. **Token expiration**: Requires periodic re-authentication
 4. **Device binding**: device_code tied to single device
+5. **Trial controlled by Admin/Reseller only**: Users cannot start trials themselves
+6. **Playlist access blocked when expired**: EXPIRED devices cannot view/add playlists
+7. **Single trial per device**: Trial cannot be restarted once used
 
 ## Database Schema
 

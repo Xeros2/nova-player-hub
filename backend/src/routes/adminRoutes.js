@@ -119,6 +119,27 @@ router.post(
   adminController.batchActivate
 );
 
+/**
+ * @route   POST /admin/batch/start-trial-all
+ * @desc    Start trial for ALL OPEN devices
+ * @access  Private (admin only)
+ */
+router.post(
+  '/batch/start-trial-all',
+  adminController.batchStartTrialAllOpen
+);
+
+/**
+ * @route   POST /admin/batch/activate-lifetime
+ * @desc    Activate multiple devices with lifetime
+ * @access  Private (admin only)
+ */
+router.post(
+  '/batch/activate-lifetime',
+  validateBody('batchOperation'),
+  adminController.batchActivateLifetime
+);
+
 // ==========================================
 // RESELLER MANAGEMENT
 // ==========================================

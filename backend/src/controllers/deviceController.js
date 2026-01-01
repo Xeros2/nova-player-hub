@@ -54,19 +54,47 @@ const getStatus = asyncHandler(async (req, res) => {
   });
 });
 
+// NOTE: startTrial removed - can only be triggered by Admin or Reseller
+
 /**
- * POST /device/start-trial
- * Start trial period for device
+ * GET /device/player-info
+ * Get complete player info (status, playlists, trial info)
+ * Used by IPTV player apps
  */
-const startTrial = asyncHandler(async (req, res) => {
-  const { device_code } = req.body;
+const getPlayerInfo = asyncHandler(async (req, res) => {
+  const deviceId = req.device.id;
+  const { Device } = require('../models');
+  const playlistService = require('../services/playlistService');
+  const statusService = require('../services/statusService');
   
-  const status = await deviceService.startTrial(device_code);
+  const device = await Device.findByPk(deviceId);
+  if (!device) {
+    return res.status(HTTP_STATUS.NOT_FOUND).json({
+      success: false,
+      error: 'Device not found'
+    });
+  }
+  
+  const statusResponse = statusService.getStatusResponse(device);
+  
+  // Get playlists only if device can view them
+  let playlists = [];
+  if (statusResponse.permissions.can_view_playlists) {
+    try {
+      playlists = await playlistService.getDevicePlaylists(deviceId);
+    } catch (error) {
+      // If playlist retrieval fails due to status, just return empty array
+      playlists = [];
+    }
+  }
   
   res.status(HTTP_STATUS.OK).json({
     success: true,
-    message: SUCCESS_MESSAGES.TRIAL_STARTED,
-    data: status
+    data: {
+      ...statusResponse,
+      playlists,
+      server_time: new Date().toISOString()
+    }
   });
 });
 
@@ -95,6 +123,6 @@ module.exports = {
   register,
   authenticate,
   getStatus,
-  startTrial,
+  getPlayerInfo,
   activate
 };

@@ -146,9 +146,46 @@ const optionalAuth = (req, res, next) => {
   }
 };
 
+/**
+ * Middleware to require device to be active (TRIAL, ACTIVE, or LIFETIME)
+ * Must be used AFTER authenticateDevice
+ */
+const requireActiveDevice = async (req, res, next) => {
+  try {
+    const { Device } = require('../models');
+    const statusService = require('../services/statusService');
+    
+    const device = await Device.findByPk(req.device.id);
+    if (!device) {
+      return res.status(HTTP_STATUS.NOT_FOUND).json({
+        success: false,
+        error: ERROR_MESSAGES.DEVICE_NOT_FOUND
+      });
+    }
+    
+    if (!statusService.isDeviceActive(device)) {
+      return res.status(HTTP_STATUS.FORBIDDEN).json({
+        success: false,
+        error: 'Device is not active. Please activate to access this feature.'
+      });
+    }
+    
+    // Attach device model for later use
+    req.deviceModel = device;
+    next();
+  } catch (error) {
+    logger.logError(error, { context: 'requireActiveDevice' });
+    return res.status(HTTP_STATUS.INTERNAL_ERROR).json({
+      success: false,
+      error: 'Error checking device status'
+    });
+  }
+};
+
 module.exports = {
   authenticateDevice,
   authenticateReseller,
   authenticateAdmin,
-  optionalAuth
+  optionalAuth,
+  requireActiveDevice
 };

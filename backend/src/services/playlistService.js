@@ -10,6 +10,7 @@ const logger = require('../utils/logger');
 
 /**
  * Get all playlists for a device
+ * Blocks access if device status is EXPIRED
  * @param {string} deviceId - Device UUID
  * @returns {Promise<array>} - List of playlists
  */
@@ -17,6 +18,14 @@ const getDevicePlaylists = async (deviceId) => {
   const device = await Device.findByPk(deviceId);
   if (!device) {
     throw new Error(ERROR_MESSAGES.DEVICE_NOT_FOUND);
+  }
+  
+  // Check if device has permission to view playlists
+  const status = statusService.calculateDeviceStatus(device);
+  const permissions = statusService.getStatusPermissions(status);
+  
+  if (!permissions.can_view_playlists) {
+    throw new Error('Device status does not allow viewing playlists');
   }
   
   const playlists = await Playlist.findAll({
