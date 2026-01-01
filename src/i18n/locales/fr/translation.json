@@ -88,18 +88,18 @@
   "playlists": {
     "title": "Gérer Vos Playlists",
     "subtitle": "Faites-le simplement où que vous soyez",
-    "loginTitle": "Connectez-vous pour ajouter votre playlist",
-    "macAddress": "Adresse Mac",
+    "badge": "Gestion des Playlists",
+    "loginTitle": "Connectez-vous pour gérer vos playlists",
+    "deviceIdLabel": "ID de l'Appareil",
     "deviceKey": "Clé Appareil",
     "login": "CONNEXION",
     "loggingIn": "Connexion en cours...",
-    "loginSuccess": "Connexion réussie!",
-    "loginSuccessDesc": "Vous pouvez maintenant gérer vos playlists.",
+    "loginSuccess": "Connecté !",
+    "loginSuccessDesc": "Redirection vers le panneau des playlists...",
     "errorTitle": "Erreur",
     "errorDesc": "Veuillez entrer l'ID Appareil et le PIN.",
-    "welcome": "Bienvenue!",
-    "deviceId": "ID Appareil",
-    "logout": "Déconnexion"
+    "deviceId": "Votre ID Appareil",
+    "helpText": "Trouvez votre ID Appareil et Clé Appareil dans les paramètres de l'application Nova+ sur votre appareil."
   },
   "faq": {
     "badge": "Des Questions ?",

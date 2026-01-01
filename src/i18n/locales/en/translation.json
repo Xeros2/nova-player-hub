@@ -88,18 +88,18 @@
   "playlists": {
     "title": "Manage Your Playlists",
     "subtitle": "Do it simply wherever you go",
-    "loginTitle": "Login to add your playlist",
-    "macAddress": "Mac Address",
+    "badge": "Playlist Management",
+    "loginTitle": "Login to manage your playlists",
+    "deviceIdLabel": "Device ID",
     "deviceKey": "Device Key",
     "login": "LOGIN",
     "loggingIn": "Logging in...",
-    "loginSuccess": "Successfully logged in!",
-    "loginSuccessDesc": "You can now manage your playlists.",
+    "loginSuccess": "Connected!",
+    "loginSuccessDesc": "Redirecting to playlist panel...",
     "errorTitle": "Error",
     "errorDesc": "Please enter both Device ID and PIN.",
-    "welcome": "Welcome!",
-    "deviceId": "Device ID",
-    "logout": "Logout"
+    "deviceId": "Your Device ID",
+    "helpText": "Find your Device ID and Device Key in the Nova+ app settings on your device."
   },
   "faq": {
     "badge": "Got Questions?",
