@@ -1,7 +1,6 @@
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { 
-  Play, 
   LayoutDashboard, 
   Zap, 
   History, 
@@ -10,7 +9,7 @@ import {
   Menu,
   List
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const navItems = [
   { href: "/reseller", label: "Dashboard", icon: LayoutDashboard },
@@ -24,6 +23,14 @@ export function ResellerLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+
+  // Auth protection - redirect to login if not authenticated
+  useEffect(() => {
+    const auth = localStorage.getItem("reseller_auth");
+    if (!auth) {
+      navigate("/reseller/login");
+    }
+  }, [navigate]);
 
   const isActive = (path: string) => location.pathname === path;
 

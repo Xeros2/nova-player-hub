@@ -1,15 +1,13 @@
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { 
-  Play, 
   LayoutDashboard, 
   Zap, 
   List, 
   LogOut,
-  Menu,
-  X
+  Menu
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const navItems = [
   { href: "/panel", label: "Dashboard", icon: LayoutDashboard },
@@ -21,6 +19,14 @@ export function PanelLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+
+  // Auth protection - redirect to login if not authenticated
+  useEffect(() => {
+    const auth = localStorage.getItem("panel_auth");
+    if (!auth) {
+      navigate("/panel/login");
+    }
+  }, [navigate]);
 
   const isActive = (path: string) => location.pathname === path;
 
