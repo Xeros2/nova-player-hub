@@ -29,18 +29,9 @@
     "download": {
       "title": "Télécharger",
       "titleHighlight": "Nova+",
-      "useDownloader": "Utiliser l'App Downloader",
-      "downloaderDesc": "Installer via l'app Downloader avec le code:",
-      "downloaderNote": "Disponible sur Fire TV, Android TV et autres appareils de streaming",
-      "getDownloader": "Obtenir Downloader",
-      "androidFireTV": "Android / Fire TV",
-      "downloadCode": "Code de téléchargement:",
-      "downloadAPK": "Télécharger APK",
-      "samsungTV": "Samsung TV",
-      "shortAppLink": "Lien Court de l'App",
-      "openLink": "Ouvrir le Lien",
-      "windowsDesktop": "Windows Desktop",
-      "downloadExe": "Télécharger .exe"
+      "downloadBtn": "Télécharger",
+      "scanToDownload": "Scannez pour télécharger",
+      "useThisCode": "Utilisez ce code"
     },
     "features": {
       "title": "Pourquoi Choisir",
