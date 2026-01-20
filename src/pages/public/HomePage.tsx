@@ -11,14 +11,15 @@ import {
   Zap,
   List,
   Users,
-  Download,
-  Apple,
-  Play
+  Download
 } from "lucide-react";
 
 // Logos
 import novaLogo from "@/assets/nova-logo.png";
 import downloaderLogo from "@/assets/logos/downloader-logo.svg";
+import windowsStoreLogo from "@/assets/logos/windows-store-logo.svg";
+import appleStoreLogo from "@/assets/logos/apple-store-logo.svg";
+import googlePlayLogo from "@/assets/logos/google-play-logo.svg";
 
 export default function HomePage() {
   const { t } = useTranslation();
@@ -133,8 +134,8 @@ export default function HomePage() {
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
                 {/* Windows */}
                 <div className="bg-card/60 border border-border/30 rounded-xl p-6 text-center flex flex-col">
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <Monitor className="w-7 h-7 text-primary" />
+                  <div className="flex items-center justify-center mx-auto mb-4">
+                    <img src={windowsStoreLogo} alt="Windows Store" className="h-10 w-auto rounded-md" />
                   </div>
                   <h3 className="font-display font-semibold text-lg mb-3">Windows</h3>
                   
@@ -175,10 +176,10 @@ export default function HomePage() {
 
                 {/* Apple Store */}
                 <div className="bg-card/60 border border-border/30 rounded-xl p-6 text-center flex flex-col">
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <Apple className="w-7 h-7 text-primary" />
+                  <div className="flex items-center justify-center mx-auto mb-4">
+                    <img src={appleStoreLogo} alt="App Store" className="h-10 w-auto rounded-md" />
                   </div>
-                  <h3 className="font-display font-semibold text-lg mb-3">Apple Store</h3>
+                  <h3 className="font-display font-semibold text-lg mb-3">App Store</h3>
                   
                   {/* QR Code Placeholder */}
                   <div className="bg-white rounded-lg p-3 w-28 h-28 mx-auto mb-4 flex items-center justify-center">
@@ -216,8 +217,8 @@ export default function HomePage() {
 
                 {/* Google Play */}
                 <div className="bg-card/60 border border-border/30 rounded-xl p-6 text-center flex flex-col">
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <Play className="w-7 h-7 text-primary" />
+                  <div className="flex items-center justify-center mx-auto mb-4">
+                    <img src={googlePlayLogo} alt="Google Play" className="h-10 w-auto rounded-md" />
                   </div>
                   <h3 className="font-display font-semibold text-lg mb-3">Google Play</h3>
                   
