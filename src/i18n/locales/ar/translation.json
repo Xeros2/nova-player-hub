@@ -29,18 +29,9 @@
     "download": {
       "title": "تحميل",
       "titleHighlight": "Nova+",
-      "useDownloader": "استخدم تطبيق Downloader",
-      "downloaderDesc": "التثبيت عبر تطبيق Downloader بالكود:",
-      "downloaderNote": "متاح على Fire TV وAndroid TV وأجهزة البث الأخرى",
-      "getDownloader": "احصل على Downloader",
-      "androidFireTV": "أندرويد / Fire TV",
-      "downloadCode": "كود التحميل:",
-      "downloadAPK": "تحميل APK",
-      "samsungTV": "تلفزيون سامسونج",
-      "shortAppLink": "رابط التطبيق المختصر",
-      "openLink": "فتح الرابط",
-      "windowsDesktop": "ويندوز سطح المكتب",
-      "downloadExe": "تحميل .exe"
+      "downloadBtn": "تحميل",
+      "scanToDownload": "امسح للتحميل",
+      "useThisCode": "استخدم هذا الرمز"
     },
     "features": {
       "title": "لماذا تختار",

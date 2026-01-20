@@ -12,28 +12,13 @@ import {
   List,
   Users,
   Download,
-  ExternalLink
+  Apple,
+  Play
 } from "lucide-react";
 
 // Logos
 import novaLogo from "@/assets/nova-logo.png";
-import samsungLogo from "@/assets/logos/samsung-tv-logo.svg";
-import lgLogo from "@/assets/logos/lg-tv-logo.svg";
-import rokuLogo from "@/assets/logos/roku-logo.svg";
-import windowsLogo from "@/assets/logos/windows-store-logo.svg";
 import downloaderLogo from "@/assets/logos/downloader-logo.svg";
-
-const platformBadges = [
-  { name: "Google Play", image: "https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg", url: "#" },
-  { name: "App Store", image: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg", url: "#" },
-];
-
-const tvPlatforms = [
-  { name: "Samsung Smart TV", logo: samsungLogo, url: "#" },
-  { name: "LG TV", logo: lgLogo, url: "#" },
-  { name: "Roku TV", logo: rokuLogo, url: "#" },
-  { name: "Windows Store", logo: windowsLogo, url: "#" },
-];
 
 export default function HomePage() {
   const { t } = useTranslation();
@@ -144,120 +129,148 @@ export default function HomePage() {
                 {t("home.download.title")} <span className="gradient-text">{t("home.download.titleHighlight")}</span>
               </h2>
               
-              {/* Platform Badges */}
-              <div className="flex flex-wrap justify-center gap-4 mb-6">
-                {platformBadges.map((platform) => (
-                  <a 
-                    key={platform.name}
-                    href={platform.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="h-12 hover:opacity-80 transition-opacity"
-                  >
-                    <img 
-                      src={platform.image} 
-                      alt={platform.name} 
-                      className="h-full w-auto"
-                    />
-                  </a>
-                ))}
-              </div>
-              
-              {/* TV Platform Logos */}
-              <div className="flex flex-wrap justify-center gap-4 mb-10">
-                {tvPlatforms.map((platform) => (
-                  <a 
-                    key={platform.name}
-                    href={platform.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="h-10 hover:opacity-80 transition-opacity hover:scale-105 transform transition-transform"
-                  >
-                    <img 
-                      src={platform.logo} 
-                      alt={platform.name} 
-                      className="h-full w-auto"
-                    />
-                  </a>
-                ))}
-              </div>
+              {/* Download Cards Grid */}
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                {/* Windows */}
+                <div className="bg-card/60 border border-border/30 rounded-xl p-6 text-center flex flex-col">
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <Monitor className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="font-display font-semibold text-lg mb-3">Windows</h3>
+                  
+                  {/* QR Code Placeholder */}
+                  <div className="bg-white rounded-lg p-3 w-28 h-28 mx-auto mb-4 flex items-center justify-center">
+                    <svg viewBox="0 0 100 100" className="w-full h-full">
+                      <rect x="10" y="10" width="25" height="25" fill="#000"/>
+                      <rect x="65" y="10" width="25" height="25" fill="#000"/>
+                      <rect x="10" y="65" width="25" height="25" fill="#000"/>
+                      <rect x="15" y="15" width="15" height="15" fill="#fff"/>
+                      <rect x="70" y="15" width="15" height="15" fill="#fff"/>
+                      <rect x="15" y="70" width="15" height="15" fill="#fff"/>
+                      <rect x="20" y="20" width="5" height="5" fill="#000"/>
+                      <rect x="75" y="20" width="5" height="5" fill="#000"/>
+                      <rect x="20" y="75" width="5" height="5" fill="#000"/>
+                      <rect x="40" y="10" width="5" height="5" fill="#000"/>
+                      <rect x="50" y="15" width="5" height="5" fill="#000"/>
+                      <rect x="45" y="25" width="5" height="5" fill="#000"/>
+                      <rect x="40" y="40" width="20" height="20" fill="#000"/>
+                      <rect x="45" y="45" width="10" height="10" fill="#fff"/>
+                      <rect x="65" y="45" width="5" height="5" fill="#000"/>
+                      <rect x="75" y="50" width="5" height="5" fill="#000"/>
+                      <rect x="70" y="60" width="10" height="5" fill="#000"/>
+                      <rect x="85" y="70" width="5" height="10" fill="#000"/>
+                      <rect x="65" y="75" width="10" height="5" fill="#000"/>
+                      <rect x="45" y="65" width="5" height="10" fill="#000"/>
+                      <rect x="10" y="45" width="5" height="10" fill="#000"/>
+                      <rect x="20" y="50" width="10" height="5" fill="#000"/>
+                    </svg>
+                  </div>
+                  <p className="text-xs text-muted-foreground mb-4">{t("home.download.scanToDownload")}</p>
+                  
+                  <Button variant="outline" size="sm" className="gap-2 mt-auto">
+                    <Download className="w-4 h-4" />
+                    {t("home.download.downloadBtn")}
+                  </Button>
+                </div>
 
-              {/* Downloader App Section */}
-              <div className="bg-gradient-to-r from-orange-500/10 to-orange-600/5 border border-orange-500/20 rounded-xl p-6 mb-10 max-w-2xl mx-auto">
-                <div className="flex flex-col sm:flex-row items-center gap-4">
-                  <img src={downloaderLogo} alt="Downloader App" className="w-16 h-16" />
-                  <div className="text-center sm:text-left flex-1">
-                    <h3 className="font-display font-semibold text-lg mb-1">{t("home.download.useDownloader")}</h3>
-                    <p className="text-muted-foreground text-sm mb-2">
-                      {t("home.download.downloaderDesc")} <span className="text-primary font-mono font-bold">851628</span>
-                    </p>
-                    <p className="text-xs text-muted-foreground">
-                      {t("home.download.downloaderNote")}
-                    </p>
+                {/* Apple Store */}
+                <div className="bg-card/60 border border-border/30 rounded-xl p-6 text-center flex flex-col">
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <Apple className="w-7 h-7 text-primary" />
                   </div>
-                  <a 
-                    href="#" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button variant="outline" size="sm" className="gap-2 border-orange-500/30 hover:bg-orange-500/10">
-                      <ExternalLink className="w-4 h-4" />
-                      {t("home.download.getDownloader")}
-                    </Button>
-                  </a>
-                </div>
-              </div>
-              
-              {/* Download Links */}
-              <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                {/* Android / Fire TV */}
-                <div className="bg-card/60 border border-border/30 rounded-xl p-6 text-center">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <Smartphone className="w-6 h-6 text-primary" />
+                  <h3 className="font-display font-semibold text-lg mb-3">Apple Store</h3>
+                  
+                  {/* QR Code Placeholder */}
+                  <div className="bg-white rounded-lg p-3 w-28 h-28 mx-auto mb-4 flex items-center justify-center">
+                    <svg viewBox="0 0 100 100" className="w-full h-full">
+                      <rect x="10" y="10" width="25" height="25" fill="#000"/>
+                      <rect x="65" y="10" width="25" height="25" fill="#000"/>
+                      <rect x="10" y="65" width="25" height="25" fill="#000"/>
+                      <rect x="15" y="15" width="15" height="15" fill="#fff"/>
+                      <rect x="70" y="15" width="15" height="15" fill="#fff"/>
+                      <rect x="15" y="70" width="15" height="15" fill="#fff"/>
+                      <rect x="20" y="20" width="5" height="5" fill="#000"/>
+                      <rect x="75" y="20" width="5" height="5" fill="#000"/>
+                      <rect x="20" y="75" width="5" height="5" fill="#000"/>
+                      <rect x="45" y="10" width="5" height="10" fill="#000"/>
+                      <rect x="40" y="25" width="10" height="5" fill="#000"/>
+                      <rect x="55" y="20" width="5" height="5" fill="#000"/>
+                      <rect x="40" y="40" width="20" height="20" fill="#000"/>
+                      <rect x="45" y="45" width="10" height="10" fill="#fff"/>
+                      <rect x="10" y="50" width="10" height="5" fill="#000"/>
+                      <rect x="25" y="45" width="5" height="10" fill="#000"/>
+                      <rect x="70" y="45" width="10" height="5" fill="#000"/>
+                      <rect x="80" y="55" width="5" height="5" fill="#000"/>
+                      <rect x="65" y="70" width="15" height="5" fill="#000"/>
+                      <rect x="75" y="80" width="5" height="10" fill="#000"/>
+                      <rect x="50" y="70" width="5" height="15" fill="#000"/>
+                    </svg>
                   </div>
-                  <h3 className="font-display font-semibold text-lg mb-2">{t("home.download.androidFireTV")}</h3>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    {t("home.download.downloadCode")} <span className="text-primary font-mono">851628</span>
-                  </p>
-                  <a 
-                    href="#" 
-                    className="inline-flex items-center gap-2 text-primary hover:underline text-sm font-medium"
-                  >
+                  <p className="text-xs text-muted-foreground mb-4">{t("home.download.scanToDownload")}</p>
+                  
+                  <Button variant="outline" size="sm" className="gap-2 mt-auto">
                     <Download className="w-4 h-4" />
-                    {t("home.download.downloadAPK")}
-                  </a>
+                    {t("home.download.downloadBtn")}
+                  </Button>
                 </div>
-                
-                {/* Samsung TV */}
-                <div className="bg-card/60 border border-border/30 rounded-xl p-6 text-center">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <Tv className="w-6 h-6 text-primary" />
+
+                {/* Google Play */}
+                <div className="bg-card/60 border border-border/30 rounded-xl p-6 text-center flex flex-col">
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <Play className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="font-display font-semibold text-lg mb-2">{t("home.download.samsungTV")}</h3>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    {t("home.download.shortAppLink")}
-                  </p>
-                  <a 
-                    href="#" 
-                    className="inline-flex items-center gap-2 text-primary hover:underline text-sm font-medium"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    {t("home.download.openLink")}
-                  </a>
-                </div>
-                
-                {/* Windows Desktop */}
-                <div className="bg-card/60 border border-border/30 rounded-xl p-6 text-center">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <Monitor className="w-6 h-6 text-primary" />
+                  <h3 className="font-display font-semibold text-lg mb-3">Google Play</h3>
+                  
+                  {/* QR Code Placeholder */}
+                  <div className="bg-white rounded-lg p-3 w-28 h-28 mx-auto mb-4 flex items-center justify-center">
+                    <svg viewBox="0 0 100 100" className="w-full h-full">
+                      <rect x="10" y="10" width="25" height="25" fill="#000"/>
+                      <rect x="65" y="10" width="25" height="25" fill="#000"/>
+                      <rect x="10" y="65" width="25" height="25" fill="#000"/>
+                      <rect x="15" y="15" width="15" height="15" fill="#fff"/>
+                      <rect x="70" y="15" width="15" height="15" fill="#fff"/>
+                      <rect x="15" y="70" width="15" height="15" fill="#fff"/>
+                      <rect x="20" y="20" width="5" height="5" fill="#000"/>
+                      <rect x="75" y="20" width="5" height="5" fill="#000"/>
+                      <rect x="20" y="75" width="5" height="5" fill="#000"/>
+                      <rect x="40" y="15" width="5" height="5" fill="#000"/>
+                      <rect x="50" y="10" width="10" height="5" fill="#000"/>
+                      <rect x="45" y="30" width="5" height="5" fill="#000"/>
+                      <rect x="40" y="40" width="20" height="20" fill="#000"/>
+                      <rect x="45" y="45" width="10" height="10" fill="#fff"/>
+                      <rect x="15" y="45" width="5" height="10" fill="#000"/>
+                      <rect x="25" y="50" width="5" height="5" fill="#000"/>
+                      <rect x="70" y="50" width="5" height="10" fill="#000"/>
+                      <rect x="80" y="45" width="5" height="5" fill="#000"/>
+                      <rect x="85" y="65" width="5" height="15" fill="#000"/>
+                      <rect x="65" y="80" width="10" height="5" fill="#000"/>
+                      <rect x="45" y="70" width="10" height="5" fill="#000"/>
+                    </svg>
                   </div>
-                  <h3 className="font-display font-semibold text-lg mb-2">{t("home.download.windowsDesktop")}</h3>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    Windows 10/11
-                  </p>
-                  <Button variant="outline" size="sm" className="gap-2">
+                  <p className="text-xs text-muted-foreground mb-4">{t("home.download.scanToDownload")}</p>
+                  
+                  <Button variant="outline" size="sm" className="gap-2 mt-auto">
                     <Download className="w-4 h-4" />
-                    {t("home.download.downloadExe")}
+                    {t("home.download.downloadBtn")}
+                  </Button>
+                </div>
+
+                {/* Downloader */}
+                <div className="bg-card/60 border border-border/30 rounded-xl p-6 text-center flex flex-col">
+                  <div className="w-14 h-14 rounded-xl bg-orange-500/10 flex items-center justify-center mx-auto mb-4">
+                    <img src={downloaderLogo} alt="Downloader" className="w-8 h-8" />
+                  </div>
+                  <h3 className="font-display font-semibold text-lg mb-3">Downloader</h3>
+                  
+                  {/* Code Display */}
+                  <div className="bg-muted/50 rounded-lg p-4 w-28 h-28 mx-auto mb-4 flex items-center justify-center border-2 border-dashed border-orange-500/30">
+                    <span className="font-mono text-2xl font-bold text-orange-400">851628</span>
+                  </div>
+                  <p className="text-xs text-muted-foreground mb-4">{t("home.download.useThisCode")}</p>
+                  
+                  <Button variant="outline" size="sm" className="gap-2 mt-auto border-orange-500/30 hover:bg-orange-500/10">
+                    <Download className="w-4 h-4" />
+                    {t("home.download.downloadBtn")}
                   </Button>
                 </div>
               </div>
