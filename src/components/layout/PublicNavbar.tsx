@@ -89,7 +89,7 @@ export function PublicNavbar() {
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
             <LanguageSwitcher />
-            <Link to="/panel">
+            <Link to="/panel/login">
               <Button variant="ghost" size="sm">
                 {t("nav.userPanel")}
               </Button>
@@ -157,7 +157,7 @@ export function PublicNavbar() {
                 {t("nav.contact")}
               </Link>
               <div className="flex gap-2 mt-4 px-4">
-                <Link to="/panel" className="flex-1">
+                <Link to="/panel/login" className="flex-1">
                   <Button variant="outline" className="w-full">
                     {t("nav.userPanel")}
                   </Button>
