@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  api:
+    build: .
+    ports: ["3000:3000"]
+    environment:
+      - DATABASE_URL=postgres://nova:password@db:5432/nova_player
+      - NODE_ENV=production
+    depends_on: [db]
+    restart: unless-stopped
+  db:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_USER=nova
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=nova_player
+    volumes: [postgres_data:/var/lib/postgresql/data]
+    ports: ["5432:5432"]
+volumes:
+  postgres_data:
