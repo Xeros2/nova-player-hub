@@ -1,0 +1,323 @@
+// Nova Player - Prisma Schema
+// PostgreSQL avec 3 schemas: core, billing, resellers
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["multiSchema"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  schemas  = ["core", "billing", "resellers"]
+}
+
+// ============================================================
+// SCHEMA: CORE
+// Gestion des appareils, playlists, logs et administrateurs
+// ============================================================
+
+model Device {
+  id              String       @id @default(uuid())
+  deviceCode      String       @unique @map("device_code")
+  pinHash         String       @map("pin_hash")
+  status          DeviceStatus @default(OPEN)
+  platform        String?
+  playerVersion   String?      @map("player_version")
+  trialStartedAt  DateTime?    @map("trial_started_at")
+  trialExpiresAt  DateTime?    @map("trial_expires_at")
+  activatedUntil  DateTime?    @map("activated_until")
+  lifetime        Boolean      @default(false)
+  isBanned        Boolean      @default(false) @map("is_banned")
+  bannedReason    String?      @map("banned_reason")
+  lastSeenAt      DateTime?    @map("last_seen_at")
+  resellerId      String?      @map("reseller_id")
+  licenseId       String?      @map("license_id")
+  createdAt       DateTime     @default(now()) @map("created_at")
+  updatedAt       DateTime     @updatedAt @map("updated_at")
+
+  playlists   DevicePlaylist[]
+  logs        DeviceLog[]
+  reseller    Reseller?          @relation(fields: [resellerId], references: [id])
+  license     License?           @relation(fields: [licenseId], references: [id])
+  activations ActivationHistory[]
+
+  @@index([status])
+  @@index([resellerId])
+  @@index([licenseId])
+  @@index([activatedUntil])
+  @@map("devices")
+  @@schema("core")
+}
+
+model DevicePlaylist {
+  id        String   @id @default(uuid())
+  deviceId  String   @map("device_id")
+  name      String   @db.VarChar(100)
+  url       String   @db.VarChar(2048)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  device Device @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+
+  @@index([deviceId])
+  @@map("device_playlists")
+  @@schema("core")
+}
+
+model DeviceLog {
+  id        String   @id @default(uuid())
+  deviceId  String   @map("device_id")
+  action    String   @db.VarChar(50)
+  details   Json?
+  ipAddress String?  @map("ip_address") @db.VarChar(45)
+  userAgent String?  @map("user_agent") @db.VarChar(500)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  device Device @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+
+  @@index([deviceId])
+  @@index([createdAt])
+  @@map("device_logs")
+  @@schema("core")
+}
+
+model AdminUser {
+  id           String    @id @default(uuid())
+  email        String    @unique @db.VarChar(255)
+  passwordHash String    @map("password_hash") @db.VarChar(255)
+  role         AdminRole
+  adminType    AdminType @default(TECH) @map("admin_type")
+  isActive     Boolean   @default(true) @map("is_active")
+  lastLoginAt  DateTime? @map("last_login_at")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+
+  @@index([email])
+  @@index([adminType])
+  @@map("admin_users")
+  @@schema("core")
+}
+
+enum DeviceStatus {
+  OPEN
+  TRIAL
+  ACTIVE
+  EXPIRED
+  LIFETIME
+
+  @@schema("core")
+}
+
+enum AdminRole {
+  SUPER_ADMIN
+  BUSINESS_ADMIN
+  SUPPORT
+  TECH_ADMIN
+
+  @@schema("core")
+}
+
+enum AdminType {
+  TECH
+  BUSINESS
+
+  @@schema("core")
+}
+
+// ============================================================
+// SCHEMA: BILLING
+// Gestion des licences, paiements et transactions
+// ============================================================
+
+model License {
+  id          String        @id @default(uuid())
+  licenseKey  String        @unique @map("license_key") @db.VarChar(50)
+  type        LicenseType   @default(LIFETIME)
+  status      LicenseStatus @default(AVAILABLE)
+  origin      LicenseOrigin @default(DIRECT_SALE)
+  resellerId  String?       @map("reseller_id")
+  paymentId   String?       @map("payment_id")
+  activatedAt DateTime?     @map("activated_at")
+  expiresAt   DateTime?     @map("expires_at")
+  createdAt   DateTime      @default(now()) @map("created_at")
+  updatedAt   DateTime      @updatedAt @map("updated_at")
+
+  devices  Device[]
+  reseller Reseller? @relation(fields: [resellerId], references: [id])
+  payment  Payment?  @relation(fields: [paymentId], references: [id])
+
+  @@index([status])
+  @@index([resellerId])
+  @@index([origin])
+  @@map("licenses")
+  @@schema("billing")
+}
+
+model Payment {
+  id            String        @id @default(uuid())
+  amount        Decimal       @db.Decimal(10, 2)
+  currency      String        @default("EUR") @db.VarChar(3)
+  status        PaymentStatus @default(PENDING)
+  source        PaymentSource @default(STRIPE)
+  reference     String?       @db.VarChar(255)
+  externalId    String?       @map("external_id") @db.VarChar(255)
+  resellerId    String?       @map("reseller_id")
+  customerEmail String?       @map("customer_email") @db.VarChar(255)
+  metadata      Json?
+  createdAt     DateTime      @default(now()) @map("created_at")
+  updatedAt     DateTime      @updatedAt @map("updated_at")
+
+  licenses License[]
+  reseller Reseller? @relation(fields: [resellerId], references: [id])
+
+  @@index([status])
+  @@index([source])
+  @@index([resellerId])
+  @@index([createdAt])
+  @@map("payments")
+  @@schema("billing")
+}
+
+model Transaction {
+  id          String          @id @default(uuid())
+  type        TransactionType
+  amount      Decimal         @db.Decimal(10, 2)
+  currency    String          @default("EUR") @db.VarChar(3)
+  description String?         @db.VarChar(500)
+  reference   String?         @db.VarChar(255)
+  metadata    Json?
+  createdAt   DateTime        @default(now()) @map("created_at")
+
+  @@index([type])
+  @@index([createdAt])
+  @@map("transactions")
+  @@schema("billing")
+}
+
+enum LicenseType {
+  LIFETIME
+  YEARLY
+  MONTHLY
+  TRIAL
+
+  @@schema("billing")
+}
+
+enum LicenseStatus {
+  AVAILABLE
+  ACTIVATED
+  REVOKED
+  EXPIRED
+
+  @@schema("billing")
+}
+
+enum LicenseOrigin {
+  DIRECT_SALE
+  RESELLER
+  PROMOTIONAL
+
+  @@schema("billing")
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+  CANCELLED
+
+  @@schema("billing")
+}
+
+enum PaymentSource {
+  STRIPE
+  PAYPAL
+  MANUAL
+  RESELLER_CREDIT
+  BANK_TRANSFER
+
+  @@schema("billing")
+}
+
+enum TransactionType {
+  LICENSE_SALE
+  LICENSE_REFUND
+  RESELLER_CREDIT
+  RESELLER_DEBIT
+  ADJUSTMENT
+
+  @@schema("billing")
+}
+
+// ============================================================
+// SCHEMA: RESELLERS
+// Gestion des revendeurs et historique des activations
+// ============================================================
+
+model Reseller {
+  id              String   @id @default(uuid())
+  email           String   @unique @db.VarChar(255)
+  passwordHash    String   @map("password_hash") @db.VarChar(255)
+  companyName     String?  @map("company_name") @db.VarChar(255)
+  contactName     String?  @map("contact_name") @db.VarChar(255)
+  phone           String?  @db.VarChar(20)
+  licenseQuota    Int      @default(0) @map("license_quota")
+  licensesInStock Int      @default(0) @map("licenses_in_stock")
+  totalActivated  Int      @default(0) @map("total_activated")
+  isActive        Boolean  @default(true) @map("is_active")
+  isBlocked       Boolean  @default(false) @map("is_blocked")
+  blockedReason   String?  @map("blocked_reason") @db.VarChar(500)
+  lastLoginAt     DateTime? @map("last_login_at")
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  devices     Device[]
+  licenses    License[]
+  payments    Payment[]
+  activations ActivationHistory[]
+
+  @@index([email])
+  @@index([isActive])
+  @@map("resellers")
+  @@schema("resellers")
+}
+
+model ActivationHistory {
+  id           String         @id @default(uuid())
+  deviceId     String         @map("device_id")
+  resellerId   String?        @map("reseller_id")
+  adminId      String?        @map("admin_id")
+  action       ActivationAction
+  previousStatus String?      @map("previous_status") @db.VarChar(20)
+  newStatus    String?        @map("new_status") @db.VarChar(20)
+  details      Json?
+  ipAddress    String?        @map("ip_address") @db.VarChar(45)
+  createdAt    DateTime       @default(now()) @map("created_at")
+
+  device   Device    @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+  reseller Reseller? @relation(fields: [resellerId], references: [id])
+
+  @@index([deviceId])
+  @@index([resellerId])
+  @@index([action])
+  @@index([createdAt])
+  @@map("activation_history")
+  @@schema("resellers")
+}
+
+enum ActivationAction {
+  REGISTERED
+  TRIAL_STARTED
+  ACTIVATED
+  LIFETIME_ACTIVATED
+  PROLONGED
+  EXPIRED
+  BANNED
+  UNBANNED
+  LICENSE_LINKED
+  LICENSE_UNLINKED
+
+  @@schema("resellers")
+}
