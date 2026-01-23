@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" fill="none">
+  <rect width="120" height="40" rx="6" fill="#3C4043"/>
+  <path d="M14 8l12 12-12 12V8z" fill="#4285F4"/>
+  <path d="M14 8l12 12-6 6-6-6V8z" fill="#EA4335"/>
+  <path d="M14 32l6-6 6 6H14z" fill="#34A853"/>
+  <path d="M26 20l-6 6 6 6V20z" fill="#FBBC05"/>
+  <text x="75" y="26" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-weight="bold" font-size="10">Google Play</text>
+</svg>
