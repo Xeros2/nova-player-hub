@@ -1,0 +1,382 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "managePlaylists": "Gérer les Playlists",
+    "activate": "Activer",
+    "news": "Actualités",
+    "faq": "FAQ",
+    "blog": "Blog",
+    "resellers": "Revendeurs",
+    "becomeReseller": "Devenir Revendeur",
+    "findReseller": "Trouver un Revendeur",
+    "contact": "Contact",
+    "userPanel": "Panneau Utilisateur",
+    "activateNow": "Activer Maintenant"
+  },
+  "home": {
+    "badge": "Activation à Vie Disponible",
+    "title": "Streamez Tout avec",
+    "titleHighlight": "Nova+",
+    "description": "Le lecteur IPTV ultime pour appareils Android. Installation simple, playlists illimitées et activation à vie. Votre divertissement, à votre façon.",
+    "activateNow": "Activer Maintenant",
+    "learnMore": "En Savoir Plus",
+    "devices": {
+      "androidPhone": "Téléphone Android",
+      "androidTablet": "Tablette Android",
+      "androidTV": "Android TV",
+      "fireTV": "Fire TV Stick"
+    },
+    "download": {
+      "title": "Télécharger",
+      "titleHighlight": "Nova+",
+      "downloadBtn": "Télécharger",
+      "scanToDownload": "Scannez pour télécharger",
+      "useThisCode": "Utilisez ce code"
+    },
+    "features": {
+      "title": "Pourquoi Choisir",
+      "titleHighlight": "Nova+",
+      "description": "Découvrez le meilleur lecteur IPTV avec des fonctionnalités conçues pour la simplicité et la puissance.",
+      "lifetimeActivation": "Activation à Vie",
+      "lifetimeActivationDesc": "Payez une fois, utilisez pour toujours. Pas de frais récurrents.",
+      "unlimitedPlaylists": "Playlists Illimitées",
+      "unlimitedPlaylistsDesc": "Ajoutez autant de playlists M3U que vous voulez, locales ou serveur.",
+      "instantSetup": "Configuration Instantanée",
+      "instantSetupDesc": "Activation simple avec ID Appareil et PIN. Prêt en minutes.",
+      "multiDevice": "Multi-Appareils",
+      "multiDeviceDesc": "Utilisez sur tous vos appareils compatibles avec un seul compte."
+    },
+    "howItWorks": {
+      "title": "Comment",
+      "titleHighlight": "Commencer",
+      "description": "Activez votre appareil en quelques étapes simples.",
+      "step1Title": "Installer l'App",
+      "step1Desc": "Téléchargez Nova Player depuis votre store d'apps",
+      "step2Title": "Obtenir Votre ID",
+      "step2Desc": "Ouvrez l'app pour voir votre ID Appareil et PIN",
+      "step3Title": "Connexion",
+      "step3Desc": "Visitez notre site et connectez-vous avec vos identifiants",
+      "step4Title": "Activer",
+      "step4Desc": "Choisissez l'activation à vie ou essai",
+      "activateDevice": "Activer Votre Appareil"
+    },
+    "cta": {
+      "title": "Prêt à Commencer le Streaming?",
+      "description": "Rejoignez des milliers d'utilisateurs satisfaits. Activez votre appareil aujourd'hui et profitez d'un divertissement illimité.",
+      "getStarted": "Commencer Maintenant",
+      "becomeReseller": "Devenir Revendeur"
+    }
+  },
+  "footer": {
+    "description": "Le lecteur IPTV ultime pour tous vos besoins de streaming. Simple, puissant et fiable.",
+    "quickLinks": "Liens Rapides",
+    "resources": "Ressources",
+    "contactUs": "Contactez-Nous",
+    "copyright": "© 2024 Nova+. Tous droits réservés.",
+    "privacyPolicy": "Politique de Confidentialité",
+    "termsOfService": "Conditions d'Utilisation"
+  },
+  "playlists": {
+    "title": "Gérer Vos Playlists",
+    "subtitle": "Faites-le simplement où que vous soyez",
+    "badge": "Gestion des Playlists",
+    "loginTitle": "Connectez-vous pour gérer vos playlists",
+    "deviceIdLabel": "ID de l'Appareil",
+    "deviceKey": "Clé de l'Appareil",
+    "login": "CONNEXION",
+    "loggingIn": "Connexion en cours...",
+    "loginSuccess": "Connecté !",
+    "loginSuccessDesc": "Redirection vers le panneau des playlists...",
+    "errorTitle": "Erreur",
+    "errorDesc": "Veuillez entrer l'ID Appareil et le PIN.",
+    "deviceId": "Votre ID Appareil",
+    "helpText": "Trouvez votre ID Appareil et Clé Appareil dans les paramètres de l'application Nova+ sur votre appareil."
+  },
+  "faq": {
+    "badge": "Des Questions ?",
+    "title": "Questions",
+    "titleHighlight": "Fréquentes",
+    "description": "Trouvez les réponses aux questions courantes sur Nova+, l'activation et les fonctionnalités.",
+    "items": {
+      "q1": {
+        "question": "Qu'est-ce que Nova+ ?",
+        "answer": "Nova+ est une application lecteur IPTV premium pour appareils Android (téléphones, tablettes, Android TV et Fire TV). Elle vous permet de diffuser du contenu depuis des playlists M3U fournies par votre service IPTV."
+      },
+      "q2": {
+        "question": "Quels appareils sont compatibles ?",
+        "answer": "Nova+ fonctionne sur les téléphones Android, tablettes Android, box Android TV et appareils Amazon Fire TV. Tout appareil avec Android 5.0 ou supérieur est supporté."
+      },
+      "q3": {
+        "question": "Quelle est la différence entre l'activation Essai et À Vie ?",
+        "answer": "L'activation Essai vous donne un accès temporaire pour tester toutes les fonctionnalités. L'activation À Vie est un achat unique qui vous donne un accès permanent à l'application sans frais récurrents."
+      },
+      "q4": {
+        "question": "Comment trouver mon ID Appareil et PIN ?",
+        "answer": "Après avoir installé Nova+, ouvrez l'application et votre ID Appareil et PIN uniques seront affichés sur l'écran principal. Utilisez ces identifiants pour vous connecter au Panneau Utilisateur sur notre site."
+      },
+      "q5": {
+        "question": "Puis-je utiliser Nova+ sur plusieurs appareils ?",
+        "answer": "Chaque appareil nécessite sa propre activation. Lorsque vous installez l'application sur un nouvel appareil, elle génère un ID Appareil et PIN uniques qui doivent être activés séparément."
+      },
+      "q6": {
+        "question": "Quels formats de playlist sont supportés ?",
+        "answer": "Nova+ supporte les formats de playlist M3U et M3U8. Vous pouvez ajouter des playlists via URL ou importer des fichiers locaux depuis le stockage de votre appareil."
+      },
+      "q7": {
+        "question": "Comment ajouter une playlist ?",
+        "answer": "Connectez-vous au Panneau Utilisateur avec votre ID Appareil et PIN, allez dans l'onglet Playlists, et entrez un nom avec l'URL de la playlist. Votre playlist sera synchronisée automatiquement sur votre appareil."
+      },
+      "q8": {
+        "question": "Y a-t-il un support EPG (Guide Électronique des Programmes) ?",
+        "answer": "Oui, Nova+ supporte l'EPG lorsque votre fournisseur de playlist inclut des données EPG ou lorsque vous configurez une URL EPG dans les paramètres de l'application."
+      },
+      "q9": {
+        "question": "Que faire si mon ID Appareil change ?",
+        "answer": "Si vous réinitialisez votre appareil ou réinstallez l'application, un nouvel ID Appareil peut être généré. Contactez le support avec vos détails d'activation précédents pour assistance."
+      },
+      "q10": {
+        "question": "Comment devenir revendeur ?",
+        "answer": "Visitez notre page 'Devenir Revendeur' pour en savoir plus sur notre programme revendeur. Vous aurez accès à un panneau spécial pour gérer les activations clients et gagner des commissions."
+      },
+      "q11": {
+        "question": "Fournissez-vous des abonnements IPTV ?",
+        "answer": "Non, Nova+ est uniquement l'application lecteur. Vous devez obtenir des abonnements playlist IPTV auprès de votre fournisseur IPTV préféré séparément."
+      },
+      "q12": {
+        "question": "Comment contacter le support ?",
+        "answer": "Vous pouvez joindre notre équipe support via la page Contact sur notre site. Nous répondons généralement sous 24-48 heures."
+      }
+    }
+  },
+  "news": {
+    "badge": "Restez Informé",
+    "title": "Dernières",
+    "titleHighlight": "Actualités",
+    "description": "Restez informé des dernières mises à jour, fonctionnalités et annonces de Nova+.",
+    "categories": {
+      "release": "Sortie",
+      "update": "Mise à jour",
+      "announcement": "Annonce",
+      "infrastructure": "Infrastructure",
+      "feature": "Fonctionnalité"
+    },
+    "items": {
+      "n1": {
+        "date": "28 Décembre 2024",
+        "title": "Nova+ 2.5 Disponible",
+        "excerpt": "La nouvelle version apporte des performances améliorées, un meilleur support EPG et un guide des chaînes redessiné. Mettez à jour maintenant pour la meilleure expérience."
+      },
+      "n2": {
+        "date": "15 Décembre 2024",
+        "title": "Support Fire TV Stick Amélioré",
+        "excerpt": "Navigation optimisée et support de la télécommande pour les appareils Amazon Fire TV. Profitez d'une navigation plus fluide avec votre télécommande Fire TV."
+      },
+      "n3": {
+        "date": "1er Décembre 2024",
+        "title": "Lancement du Nouveau Programme Revendeur",
+        "excerpt": "Présentation de notre programme revendeur mis à jour avec de meilleures commissions et un panneau revendeur dédié. Postulez aujourd'hui !"
+      },
+      "n4": {
+        "date": "20 Novembre 2024",
+        "title": "Mise à Niveau de l'Infrastructure Serveur",
+        "excerpt": "Nous avons mis à niveau nos serveurs pour un chargement de playlist plus rapide et une fiabilité améliorée. Profitez d'un streaming sans interruption."
+      },
+      "n5": {
+        "date": "10 Novembre 2024",
+        "title": "Support Multi-Pistes Audio",
+        "excerpt": "Nova+ supporte maintenant plusieurs pistes audio. Changez de langue à la volée pour les chaînes qui offrent plusieurs options audio."
+      }
+    }
+  },
+  "blog": {
+    "badge": "Apprendre & Explorer",
+    "title": "Nova+",
+    "titleHighlight": "Blog",
+    "description": "Tutoriels, astuces et guides pour tirer le meilleur parti de Nova+.",
+    "readMore": "Lire la Suite",
+    "minRead": "min de lecture",
+    "categories": {
+      "tutorial": "Tutoriel",
+      "tips": "Astuces",
+      "guide": "Guide"
+    },
+    "items": {
+      "b1": {
+        "title": "Démarrer avec Nova+ : Guide Complet",
+        "excerpt": "Apprenez à configurer Nova+ sur votre appareil, ajouter votre première playlist et commencer à streamer en quelques minutes."
+      },
+      "b2": {
+        "title": "Bonnes Pratiques pour la Gestion des Playlists",
+        "excerpt": "Organisez efficacement vos playlists avec ces astuces et conseils pour gérer plusieurs sources M3U."
+      },
+      "b3": {
+        "title": "Optimiser Votre Qualité de Streaming",
+        "excerpt": "Obtenez la meilleure qualité d'image avec notre guide sur les paramètres vidéo, l'optimisation du buffer et la configuration réseau."
+      },
+      "b4": {
+        "title": "Comment Configurer l'EPG (Guide Électronique des Programmes)",
+        "excerpt": "Configurez votre guide électronique des programmes pour voir ce qui passe maintenant et planifier vos visionnages."
+      }
+    }
+  },
+  "contact": {
+    "badge": "Contactez-Nous",
+    "title": "Nous",
+    "titleHighlight": "Contacter",
+    "description": "Des questions ou besoin d'aide ? Nous sommes là pour vous. Envoyez-nous un message et nous répondrons dès que possible.",
+    "form": {
+      "name": "Nom",
+      "namePlaceholder": "Votre nom",
+      "email": "Email",
+      "emailPlaceholder": "votre@email.com",
+      "subject": "Sujet",
+      "subjectPlaceholder": "Comment pouvons-nous vous aider ?",
+      "message": "Message",
+      "messagePlaceholder": "Dites-nous en plus sur votre demande...",
+      "submit": "Envoyer le Message"
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Téléphone",
+      "location": "Localisation"
+    },
+    "toast": {
+      "success": "Message envoyé ! Nous vous répondrons bientôt."
+    }
+  },
+  "activate": {
+    "badge": "Processus d'Activation Simple",
+    "title": "Activez Votre",
+    "titleHighlight": "Appareil",
+    "description": "Suivez ces étapes simples pour activer Nova+ sur votre appareil et commencer à streamer.",
+    "loginTitle": "Connectez-vous pour activer votre appareil",
+    "deviceIdLabel": "ID de l'Appareil",
+    "deviceIdPlaceholder": "Votre ID Appareil",
+    "deviceKey": "Clé de l'Appareil",
+    "login": "CONNEXION",
+    "loggingIn": "Connexion en cours...",
+    "errorTitle": "Erreur",
+    "errorDesc": "Veuillez entrer votre ID Appareil et PIN",
+    "loginSuccess": "Connecté !",
+    "loginSuccessDesc": "Redirection vers le panneau d'activation...",
+    "helpText": "Trouvez votre ID Appareil et Clé Appareil dans les paramètres de l'application Nova+ sur votre appareil.",
+    "steps": {
+      "s1": {
+        "title": "Installer Nova+",
+        "description": "Téléchargez l'application Nova+ depuis le store de votre appareil (Android TV, Fire TV, Téléphone/Tablette Android)."
+      },
+      "s2": {
+        "title": "Obtenir Vos Identifiants",
+        "description": "Ouvrez l'application et notez votre ID Appareil et PIN uniques affichés à l'écran."
+      },
+      "s3": {
+        "title": "Visiter Notre Site",
+        "description": "Allez sur le Panneau Utilisateur de notre site et entrez votre ID Appareil et PIN pour vous connecter."
+      },
+      "s4": {
+        "title": "Choisir Votre Activation",
+        "description": "Sélectionnez l'activation À Vie pour un accès permanent, ou essayez notre Essai pour tester les fonctionnalités d'abord."
+      }
+    },
+    "types": {
+      "chooseTitle": "Choisissez Votre",
+      "chooseTitleHighlight": "Type d'Activation",
+      "recommended": "RECOMMANDÉ",
+      "trial": {
+        "title": "Activation Essai",
+        "description": "Testez toutes les fonctionnalités pendant une durée limitée avant de vous engager.",
+        "features": {
+          "f1": "Accès complet aux fonctionnalités",
+          "f2": "Durée limitée",
+          "f3": "Aucun paiement requis",
+          "f4": "Parfait pour tester"
+        },
+        "cta": "Commencer l'Essai"
+      },
+      "lifetime": {
+        "title": "Activation À Vie",
+        "description": "Paiement unique pour un accès permanent à toutes les fonctionnalités.",
+        "features": {
+          "f1": "Accès illimité pour toujours",
+          "f2": "Toutes les fonctionnalités premium",
+          "f3": "Support prioritaire",
+          "f4": "Aucun frais récurrent"
+        },
+        "cta": "Activer À Vie"
+      }
+    },
+    "cta": {
+      "alreadyHave": "Vous avez déjà votre ID Appareil et PIN ?",
+      "goToPanel": "Aller au Panneau Utilisateur"
+    }
+  },
+  "reseller": {
+    "badge": "Devenez Partenaire",
+    "title": "Devenir",
+    "titleHighlight": "Revendeur",
+    "description": "Rejoignez notre réseau de revendeurs et gagnez en vendant des activations Nova+. Accédez à des outils exclusifs et au support.",
+    "benefits": {
+      "b1": {
+        "title": "Commissions Compétitives",
+        "description": "Gagnez des commissions généreuses sur chaque activation vendue."
+      },
+      "b2": {
+        "title": "Panneau Dédié",
+        "description": "Accédez à votre propre panneau revendeur pour gérer clients et activations."
+      },
+      "b3": {
+        "title": "Statistiques en Temps Réel",
+        "description": "Suivez vos ventes, commissions et l'activité clients en temps réel."
+      },
+      "b4": {
+        "title": "Support Prioritaire",
+        "description": "Bénéficiez d'un support dédié pour vous et vos clients."
+      }
+    },
+    "features": {
+      "title": "Panneau Revendeur",
+      "titleHighlight": "Fonctionnalités",
+      "f1": "Activation instantanée des appareils",
+      "f2": "Système basé sur les crédits",
+      "f3": "Options d'activation en masse",
+      "f4": "Gestion des playlists clients",
+      "f5": "Historique d'activité détaillé",
+      "f6": "Accès au panneau 24/7"
+    },
+    "form": {
+      "title": "Postuler",
+      "titleHighlight": "Maintenant",
+      "fullName": "Nom Complet",
+      "fullNamePlaceholder": "Votre nom",
+      "email": "Email",
+      "emailPlaceholder": "votre@email.com",
+      "phone": "Téléphone",
+      "phonePlaceholder": "+33 ...",
+      "company": "Entreprise (Optionnel)",
+      "companyPlaceholder": "Votre entreprise",
+      "message": "Parlez-nous de vous",
+      "messagePlaceholder": "Votre expérience, volume prévu, etc.",
+      "submit": "Soumettre la Candidature"
+    },
+    "toast": {
+      "success": "Candidature soumise ! Nous examinerons et vous contacterons bientôt."
+    }
+  },
+  "findReseller": {
+    "badge": "Support Local",
+    "title": "Trouver un",
+    "titleHighlight": "Revendeur Proche",
+    "description": "Obtenez un support local et une assistance d'activation auprès de nos revendeurs autorisés.",
+    "searchPlaceholder": "Rechercher par ville, région ou nom...",
+    "authorizedTitle": "Revendeurs",
+    "authorizedTitleHighlight": "Autorisés",
+    "mapComingSoon": "Carte interactive bientôt disponible",
+    "noResults": "Aucun revendeur trouvé correspondant à votre recherche."
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "step": "ÉTAPE"
+  }
+}
