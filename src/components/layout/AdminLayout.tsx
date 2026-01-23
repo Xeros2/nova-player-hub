@@ -7,14 +7,18 @@ import {
   BarChart3,
   LogOut,
   Menu,
-  Settings
+  Settings,
+  Key,
+  CreditCard
 } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const navItems = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/devices", label: "Devices", icon: Smartphone },
+  { href: "/admin/licenses", label: "Licenses", icon: Key },
   { href: "/admin/resellers", label: "Resellers", icon: Users },
+  { href: "/admin/payments", label: "Payments", icon: CreditCard },
   { href: "/admin/statistics", label: "Statistics", icon: BarChart3 },
   { href: "/admin/settings", label: "Settings", icon: Settings },
 ];

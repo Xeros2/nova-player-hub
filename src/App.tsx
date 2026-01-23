@@ -33,6 +33,8 @@ import AdminDashboardPage from "@/pages/admin/AdminDashboardPage";
 import AdminDevicesPage from "@/pages/admin/AdminDevicesPage";
 import AdminResellersPage from "@/pages/admin/AdminResellersPage";
 import AdminStatisticsPage from "@/pages/admin/AdminStatisticsPage";
+import AdminLicensesPage from "@/pages/admin/AdminLicensesPage";
+import AdminPaymentsPage from "@/pages/admin/AdminPaymentsPage";
 
 // Reseller Pages
 import ResellerLoginPage from "@/pages/reseller/ResellerLoginPage";
@@ -77,7 +79,9 @@ const App = () => (
           <Route element={<AdminLayout />}>
             <Route path="/admin" element={<AdminDashboardPage />} />
             <Route path="/admin/devices" element={<AdminDevicesPage />} />
+            <Route path="/admin/licenses" element={<AdminLicensesPage />} />
             <Route path="/admin/resellers" element={<AdminResellersPage />} />
+            <Route path="/admin/payments" element={<AdminPaymentsPage />} />
             <Route path="/admin/statistics" element={<AdminStatisticsPage />} />
             <Route path="/admin/settings" element={<AdminDashboardPage />} />
           </Route>
